@@ -1,0 +1,99 @@
+//
+//  TodayView.swift
+//  yournal
+//
+//  Created by Patrick Johnson on 3/21/21.
+//
+
+import SwiftUI
+
+struct TodayView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var viewModel = JournalViewModel()
+    @State var showNewJournalSheet: Bool = false
+    var body: some View {
+        ZStack{
+            Rectangle().edgesIgnoringSafeArea(.all).foregroundColor(Color("Background"))
+            ScrollView{
+                Button(action: {showNewJournalSheet = true}, label: {
+                    HStack{
+                        Spacer()
+                        Image(systemName: "plus")
+                        Spacer()
+                    }
+                })
+                .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 15))
+                .padding()
+                .sheet(isPresented: $showNewJournalSheet, content: {
+                    NewJournalView(viewModel: viewModel)
+                })
+                if !viewModel.journals.isEmpty{
+                    HStack{
+                        Text("Journals").font(.title2).bold()
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    JournalListView(journals: viewModel.journals)
+                        .padding(.horizontal)
+
+                }
+            }
+        }
+        .navigationTitle("My Day")
+        .onAppear(perform: {
+            self.viewModel.loadJournals(date: Date())
+        })
+    }
+}
+
+struct GenericButtonStyle: ButtonStyle {
+    var foregroundColor: Color
+    var backgroundColor: Color
+    var pressedColor: Color
+    var internalPadding: CGFloat
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.headline)
+            .padding(internalPadding)
+            .foregroundColor(foregroundColor)
+            .background(configuration.isPressed ? pressedColor : backgroundColor)
+            .cornerRadius(12)
+    }
+}
+
+struct TodayView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NavigationView{
+                TodayView()
+            }
+            .preferredColorScheme(.dark)
+            NavigationView{
+                TodayView()
+            }
+            .previewDevice("iPad Pro (12.9-inch) (4th generation)")
+            .preferredColorScheme(.dark)
+        }
+    }
+}
+
+struct JournalListView: View {
+    var journals: [JournalEntry]
+    var body: some View {
+        VStack(alignment: .leading){
+            ForEach(journals.indices, id: \.self){ index in
+                NavigationLink(
+                    destination: JournalDetailView(entry: journals[index]),
+                    label: {
+                        JournalQuickView(entry: journals[index])
+                    }).buttonStyle(PlainButtonStyle())
+                    .padding(.vertical, 5)
+                if(index != journals.count-1){
+                    Divider()
+                }
+            }
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
+    }
+}
