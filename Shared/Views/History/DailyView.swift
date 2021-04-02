@@ -11,9 +11,10 @@ struct DailyView: View {
     var date: Date
     @ObservedObject var journalViewModel: JournalViewModel
     var body: some View {
+        let journalEntries = journalViewModel.entries(at: date)
         VStack{
-            if !journalViewModel.entries(at: date).isEmpty {
-                Image("\(journalViewModel.journals.last!.emotionSelected!)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 30).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(.pink))
+            if !journalEntries.isEmpty {
+                Image("\(journalEntries.last!.emotionSelected!)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 30).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(.pink))
             } else{
                 Image("happy-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 30).clipped().padding(6).opacity(0).overlay(Circle().stroke(lineWidth: 4).foregroundColor(.pink)).saturation(0)
             }
@@ -21,7 +22,7 @@ struct DailyView: View {
             Text(String(day))
         }
         .padding()
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(lineWidth: journalViewModel.journals.isEmpty ? 0 : 4).foregroundColor(Color("Card")))
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(lineWidth: journalEntries.isEmpty ? 0 : 4).foregroundColor(Color("Card")))
     }
 }
 

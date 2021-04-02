@@ -68,6 +68,10 @@
 		AC7870402612B2A400AB4470 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78703E2612B2A400AB4470 /* WeekView.swift */; };
 		AC7870462612B2B300AB4470 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870452612B2B300AB4470 /* DailyView.swift */; };
 		AC7870472612B2B300AB4470 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870452612B2B300AB4470 /* DailyView.swift */; };
+		AC78704D261576B600AB4470 /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78704C261576B500AB4470 /* MonthlyView.swift */; };
+		AC78704E261576B600AB4470 /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78704C261576B500AB4470 /* MonthlyView.swift */; };
+		AC7870542616B28400AB4470 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870532616B28300AB4470 /* Date+Extensions.swift */; };
+		AC7870552616B28400AB4470 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870532616B28300AB4470 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +134,8 @@
 		AC7870332612AF7900AB4470 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		AC78703E2612B2A400AB4470 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		AC7870452612B2B300AB4470 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		AC78704C261576B500AB4470 /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
+		AC7870532616B28300AB4470 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +266,7 @@
 				AC786FF4260A55C500AB4470 /* JournalEntry+Extension.swift */,
 				AC787015260A7F4200AB4470 /* Prompt+Extension.swift */,
 				AC787002260A68A100AB4470 /* NotificationName+Extension.swift */,
+				AC7870532616B28300AB4470 /* Date+Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				AC7870332612AF7900AB4470 /* HistoryView.swift */,
+				AC78704C261576B500AB4470 /* MonthlyView.swift */,
 				AC78703E2612B2A400AB4470 /* WeekView.swift */,
 				AC7870452612B2B300AB4470 /* DailyView.swift */,
 			);
@@ -482,6 +490,7 @@
 				AC786F122607F8B800AB4470 /* IpadSidebar.swift in Sources */,
 				AC7870342612AF7900AB4470 /* HistoryView.swift in Sources */,
 				AC787021260A819000AB4470 /* PromptViewModel.swift in Sources */,
+				AC7870542616B28400AB4470 /* Date+Extensions.swift in Sources */,
 				AC786F4A2608017E00AB4470 /* NewJournalView.swift in Sources */,
 				AC786FC0260905C100AB4470 /* Background.swift in Sources */,
 				AC786F262607FFF600AB4470 /* CalendarView.swift in Sources */,
@@ -497,6 +506,7 @@
 				AC786F202607FE5000AB4470 /* Tabbar.swift in Sources */,
 				AC786EED2607D4E300AB4470 /* yournal.xcdatamodeld in Sources */,
 				AC7870462612B2B300AB4470 /* DailyView.swift in Sources */,
+				AC78704D261576B600AB4470 /* MonthlyView.swift in Sources */,
 				AC786F5F2608021900AB4470 /* JournalQuickView.swift in Sources */,
 				AC78703F2612B2A400AB4470 /* WeekView.swift in Sources */,
 				AC787016260A7F4200AB4470 /* Prompt+Extension.swift in Sources */,
@@ -511,6 +521,7 @@
 			files = (
 				AC786F52260801A900AB4470 /* JournalEditView.swift in Sources */,
 				AC786FA2260846CD00AB4470 /* MacSidebar.swift in Sources */,
+				AC78704E261576B600AB4470 /* MonthlyView.swift in Sources */,
 				AC786FF6260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
 				AC786F272607FFF600AB4470 /* CalendarView.swift in Sources */,
 				AC7870472612B2B300AB4470 /* DailyView.swift in Sources */,
@@ -531,6 +542,7 @@
 				AC7870352612AF7900AB4470 /* HistoryView.swift in Sources */,
 				AC786FEF260A533A00AB4470 /* JournalViewModel.swift in Sources */,
 				AC786F352608004100AB4470 /* ProfileView.swift in Sources */,
+				AC7870552616B28400AB4470 /* Date+Extensions.swift in Sources */,
 				AC786EF22607D4E300AB4470 /* ContentView.swift in Sources */,
 				AC786FCF260911FE00AB4470 /* AdaptsToKeyboard.swift in Sources */,
 				AC786F652608060D00AB4470 /* IpadSidebar.swift in Sources */,

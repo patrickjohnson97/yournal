@@ -8,14 +8,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4EC07C77-E90B-4BE1-87FD-52E756DC7135"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/Models/JournalEntry+Extension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "addNewItem()"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D3E69727-90C4-4D73-B25A-4D4C7958DFAC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/ViewModels/JournalViewModel.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7D5C525C-D9EC-4FF6-AAB4-CF7CF8DA0A73"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/ViewModels/JournalViewModel.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E826A3C6-97B8-4692-905F-3C2B6B472C6D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/ViewModels/JournalViewModel.swift"
@@ -81,6 +81,70 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "addEntry(prompt:text:emotionSelected:sentiment:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DE3C5AE-072F-46C2-A399-0C3ABBA9B7EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Views/History/MonthlyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "1DE3C5AE-072F-46C2-A399-0C3ABBA9B7EA - d8790c6a906062ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Optional&lt;Foundation.Date&gt;&gt;, Swift.Optional&lt;Foundation.Date&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.id&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt; in closure #1 () -&gt; SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Optional&lt;Foundation.Date&gt;&gt;, Swift.Optional&lt;Foundation.Date&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.id&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt; in yournal.MonthlyView.body.getter : some"
+                  moduleName = "yournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patrickjohnson/codebase/yournal/Shared/Views/History/MonthlyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "1DE3C5AE-072F-46C2-A399-0C3ABBA9B7EA - 8ff897764e07b624"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Date&gt;) -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.id&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Optional&lt;Foundation.Date&gt;&gt;, Swift.Optional&lt;Foundation.Date&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.id&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt; in closure #1 () -&gt; SwiftUI.LazyVGrid&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Optional&lt;Foundation.Date&gt;&gt;, Swift.Optional&lt;Foundation.Date&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.id&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt;&gt;&gt; in yournal.MonthlyView.body.getter : some"
+                  moduleName = "yournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/patrickjohnson/codebase/yournal/Shared/Views/History/MonthlyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "928">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38A80851-51DC-4298-A266-B83980A1A67C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Views/History/MonthlyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getAllDays()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

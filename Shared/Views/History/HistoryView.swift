@@ -22,11 +22,11 @@ struct HistoryView: View {
                 }).pickerStyle(SegmentedPickerStyle())
                 if(view == "week"){
                     WeekView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
+                } else{
+                    MonthlyView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
                 }
                 Spacer()
-                ScrollView{
-                    JournalListView(journals: journalViewModel.entries(at: selectedDate))
-                }
+                
             }
             .padding()
         }.navigationTitle("History")

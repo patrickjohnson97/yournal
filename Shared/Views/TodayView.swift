@@ -27,13 +27,14 @@ struct TodayView: View {
                 .sheet(isPresented: $showNewJournalSheet, content: {
                     NewJournalView(viewModel: viewModel)
                 })
-                if !viewModel.journals.isEmpty{
+                let journals = viewModel.entries(at: Date())
+                if !journals.isEmpty {
                     HStack{
                         Text("Journals").font(.title2).bold()
                         Spacer()
                     }
                     .padding(.horizontal)
-                    JournalListView(journals: viewModel.journals)
+                    JournalListView(journals: journals)
                         .padding(.horizontal)
 
                 }
