@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC4DE36F2617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
+		AC4DE3702617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
+		AC4DE37726180CF100DE095F /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE37626180CF100DE095F /* PromptsView.swift */; };
+		AC4DE37826180CF100DE095F /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE37626180CF100DE095F /* PromptsView.swift */; };
+		AC4DE38326180FF800DE095F /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = AC4DE38226180FF800DE095F /* Charts */; };
 		AC786EE02607D4E300AB4470 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786EDF2607D4E300AB4470 /* Tests_iOS.swift */; };
 		AC786EEB2607D4E300AB4470 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786EEA2607D4E300AB4470 /* Tests_macOS.swift */; };
 		AC786EED2607D4E300AB4470 /* yournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC786EC12607D4E300AB4470 /* yournal.xcdatamodeld */; };
@@ -92,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC4DE36E2617D07B00DE095F /* ContributionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionChart.swift; sourceTree = "<group>"; };
+		AC4DE37626180CF100DE095F /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		AC786EC22607D4E300AB4470 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		AC786EC32607D4E300AB4470 /* yournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yournalApp.swift; sourceTree = "<group>"; };
 		AC786EC42607D4E300AB4470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4DE38326180FF800DE095F /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +178,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC4DE3692617C4BC00DE095F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AC786F332608004100AB4470 /* ProfileView.swift */,
+				AC786F3A2608005300AB4470 /* SettingsView.swift */,
+				AC4DE36E2617D07B00DE095F /* ContributionChart.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		AC4DE37526180CD300DE095F /* Prompts */ = {
+			isa = PBXGroup;
+			children = (
+				AC4DE37626180CF100DE095F /* PromptsView.swift */,
+			);
+			path = Prompts;
+			sourceTree = "<group>";
+		};
 		AC786EBB2607D4E200AB4470 = {
 			isa = PBXGroup;
 			children = (
@@ -247,14 +273,14 @@
 		AC786F092607D9EB00AB4470 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC4DE37526180CD300DE095F /* Prompts */,
+				AC4DE3692617C4BC00DE095F /* Profile */,
 				AC7870322612AF5900AB4470 /* History */,
 				AC786FD42609437E00AB4470 /* Welcome */,
 				AC786F482608016800AB4470 /* Journal */,
 				AC786F102607F8A800AB4470 /* Components */,
 				AC786F252607FFF600AB4470 /* CalendarView.swift */,
 				AC786F2C2608000400AB4470 /* ListView.swift */,
-				AC786F332608004100AB4470 /* ProfileView.swift */,
-				AC786F3A2608005300AB4470 /* SettingsView.swift */,
 				AC786F412608006400AB4470 /* TodayView.swift */,
 			);
 			path = Views;
@@ -340,6 +366,9 @@
 			dependencies = (
 			);
 			name = "yournal (iOS)";
+			packageProductDependencies = (
+				AC4DE38226180FF800DE095F /* Charts */,
+			);
 			productName = "yournal (iOS)";
 			productReference = AC786ECB2607D4E300AB4470 /* yournal.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +460,9 @@
 				Base,
 			);
 			mainGroup = AC786EBB2607D4E200AB4470;
+			packageReferences = (
+				AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+			);
 			productRefGroup = AC786ECC2607D4E300AB4470 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -484,7 +516,9 @@
 				AC786FEE260A533A00AB4470 /* JournalViewModel.swift in Sources */,
 				AC78702C2611799400AB4470 /* InitializePrompts.swift in Sources */,
 				AC786F2D2608000400AB4470 /* ListView.swift in Sources */,
+				AC4DE37726180CF100DE095F /* PromptsView.swift in Sources */,
 				AC786FF5260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
+				AC4DE36F2617D07B00DE095F /* ContributionChart.swift in Sources */,
 				AC786FD62609444400AB4470 /* WelcomeScreenView.swift in Sources */,
 				AC786F342608004100AB4470 /* ProfileView.swift in Sources */,
 				AC786F122607F8B800AB4470 /* IpadSidebar.swift in Sources */,
@@ -541,11 +575,13 @@
 				AC786FC1260905C100AB4470 /* Background.swift in Sources */,
 				AC7870352612AF7900AB4470 /* HistoryView.swift in Sources */,
 				AC786FEF260A533A00AB4470 /* JournalViewModel.swift in Sources */,
+				AC4DE3702617D07B00DE095F /* ContributionChart.swift in Sources */,
 				AC786F352608004100AB4470 /* ProfileView.swift in Sources */,
 				AC7870552616B28400AB4470 /* Date+Extensions.swift in Sources */,
 				AC786EF22607D4E300AB4470 /* ContentView.swift in Sources */,
 				AC786FCF260911FE00AB4470 /* AdaptsToKeyboard.swift in Sources */,
 				AC786F652608060D00AB4470 /* IpadSidebar.swift in Sources */,
+				AC4DE37826180CF100DE095F /* PromptsView.swift in Sources */,
 				AC786F59260801D400AB4470 /* JournalDetailView.swift in Sources */,
 				AC786FC826090A2700AB4470 /* TextEntryView.swift in Sources */,
 				AC786FD72609444400AB4470 /* WelcomeScreenView.swift in Sources */,
@@ -934,6 +970,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC4DE38226180FF800DE095F /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AC786EC12607D4E300AB4470 /* yournal.xcdatamodeld */ = {

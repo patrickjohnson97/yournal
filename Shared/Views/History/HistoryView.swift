@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HistoryView: View {
     @State var view: String = "week"
-    @ObservedObject var journalViewModel = JournalViewModel()
+    @ObservedObject var journalViewModel: JournalViewModel
     @State var selectedDate: Date = Calendar.current.startOfDay(for: Date())
     var body: some View {
         NavigationView{
@@ -39,6 +39,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView(journalViewModel: JournalViewModel())
     }
 }

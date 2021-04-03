@@ -10,6 +10,7 @@ import UIKit
 struct Tabbar: View {
     @State var showWelcomeScreen = false
     @ObservedObject var promptViewModel = PromptViewModel()
+    @ObservedObject var journalViewModel = JournalViewModel()
     init(){
         UITabBar.appearance().barTintColor = UIColor(Color("Background"))
         let appearance = UINavigationBarAppearance()
@@ -24,17 +25,17 @@ struct Tabbar: View {
         TabView {
             
             NavigationView{
-                TodayView()
+                TodayView(journalViewModel: journalViewModel)
             }
             .tabItem {
                 Label("Today", systemImage: "doc.append")
             }
             
-            HistoryView()
+            HistoryView(journalViewModel: journalViewModel)
             .tabItem {
                 Label("History", systemImage: "calendar")
             }
-            ProfileView()
+            ProfileView(journalViewModel: journalViewModel)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
@@ -46,6 +47,7 @@ struct Tabbar: View {
             showWelcomeScreen = !UserDefaults.standard.bool(forKey: "userWelcomed")
 //            showWelcomeScreen = true
             promptViewModel.loadPrompts()
+            journalViewModel.loadAllJournals()
         })
     }
     

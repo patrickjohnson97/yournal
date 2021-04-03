@@ -9,7 +9,7 @@ import SwiftUI
 import NaturalLanguage
 
 struct NewJournalView: View {
-    @ObservedObject var viewModel: JournalViewModel
+    @ObservedObject var journalViewModel: JournalViewModel
     @State var text: String = ""
 
     @State var prompt: Prompt?
@@ -73,7 +73,7 @@ struct NewJournalView: View {
     }
     
     private func addJournal(){
-        viewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected(), sentiment: sentiment)
+        journalViewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected(), sentiment: sentiment)
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -126,7 +126,7 @@ struct NewJournalView: View {
 
 struct NewJournalView_Previews: PreviewProvider {
     static var previews: some View {
-        NewJournalView(viewModel: JournalViewModel())
+        NewJournalView(journalViewModel: JournalViewModel())
     }
 }
 

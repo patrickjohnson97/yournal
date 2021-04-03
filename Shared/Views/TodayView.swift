@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TodayView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var viewModel = JournalViewModel()
+    @ObservedObject var journalViewModel: JournalViewModel
     @State var showNewJournalSheet: Bool = false
     var body: some View {
         ZStack{
@@ -25,9 +25,9 @@ struct TodayView: View {
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 15))
                 .padding()
                 .sheet(isPresented: $showNewJournalSheet, content: {
-                    NewJournalView(viewModel: viewModel)
+                    NewJournalView(journalViewModel: journalViewModel)
                 })
-                let journals = viewModel.entries(at: Date())
+                let journals = journalViewModel.entries(at: Date())
                 if !journals.isEmpty {
                     HStack{
                         Text("Journals").font(.title2).bold()
@@ -42,7 +42,7 @@ struct TodayView: View {
         }
         .navigationTitle("My Day")
         .onAppear(perform: {
-            self.viewModel.loadJournals(date: Date())
+            self.journalViewModel.loadJournals(date: Date())
         })
     }
 }
@@ -63,14 +63,15 @@ struct GenericButtonStyle: ButtonStyle {
 }
 
 struct TodayView_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             NavigationView{
-                TodayView()
+                TodayView(journalViewModel: JournalViewModel())
             }
             .preferredColorScheme(.dark)
             NavigationView{
-                TodayView()
+                TodayView(journalViewModel: JournalViewModel())
             }
             .previewDevice("iPad Pro (12.9-inch) (4th generation)")
             .preferredColorScheme(.dark)

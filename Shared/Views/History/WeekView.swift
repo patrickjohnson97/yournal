@@ -26,7 +26,6 @@ struct WeekView: View {
                     Spacer()
                     ForEach(currentWeekDates, id: \.self){ day in
                         VStack(spacing: 8){
-                           
                                 let monthInt = Calendar.current.component(.month, from: day)
                                 let monthStr = Calendar.current.shortMonthSymbols[monthInt-1]
                             Text(monthStr).font(.caption).bold().opacity((day.isStartOfMonth || day.isEndOfMonth) ? 1 : 0)

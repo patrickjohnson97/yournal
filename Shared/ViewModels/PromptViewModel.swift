@@ -49,7 +49,7 @@ class PromptViewModel: ObservableObject{
     
     // simple utility to add an item (that we know should be on our list)
     private func addToPrompts(prompt: Prompt) {
-        prompts.append(prompt) // may have compromised the sort order
+        prompts.insert(prompt, at: 0) // may have compromised the sort order
     }
     
     // MARK: - User Intent Handlers
@@ -70,9 +70,11 @@ class PromptViewModel: ObservableObject{
             NotificationCenter.default.post(name: .promptAdded, object: softDeletedPrompt)
         }
         else{
-            let newPrompt = Prompt.addNewPrompt()
-            newPrompt.value = value
-            NotificationCenter.default.post(name: .promptAdded, object: newPrompt)
+            if(!prompts.contains(where: {$0.value == value})){
+                let newPrompt = Prompt.addNewPrompt()
+                newPrompt.value = value
+                NotificationCenter.default.post(name: .promptAdded, object: newPrompt)
+            }
         }
         JournalEntry.saveChanges()
     }
