@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @State var view: String = "week"
+    @State var view: String = "month"
     @ObservedObject var journalViewModel: JournalViewModel
     @State var selectedDate: Date = Calendar.current.startOfDay(for: Date())
     var body: some View {
@@ -16,10 +16,10 @@ struct HistoryView: View {
         ZStack{
             Background()
             VStack{
-                Picker(selection: $view, label: Text("View"), content: {
-                    Text("Week").tag("week")
-                    Text("Month").tag("month")
-                }).pickerStyle(SegmentedPickerStyle())
+//                Picker(selection: $view, label: Text("View"), content: {
+//                    Text("Week").tag("week")
+//                    Text("Month").tag("month")
+//                }).pickerStyle(SegmentedPickerStyle())
                 if(view == "week"){
                     WeekView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
                 } else{
@@ -28,7 +28,7 @@ struct HistoryView: View {
                 Spacer()
                 
             }
-            .padding()
+            
         }.navigationTitle("History")
         }
         .onAppear(perform: {

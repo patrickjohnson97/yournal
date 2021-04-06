@@ -9,7 +9,6 @@ import SwiftUI
 
 struct JournalDetailView: View {
     var entry: JournalEntry
-    var emotions = ["happy", "medium-happy", "average", "medium-sad", "sad"]
     var body: some View {
         ZStack{
             Background()
@@ -18,32 +17,27 @@ struct JournalDetailView: View {
                     VStack(alignment: .leading){
                         HStack{
                             Spacer()
-                            ForEach(emotions, id: \.self){ emotion in
-                                Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor( .pink)).saturation(entry.emotionSelected == emotion  ? 1.0 : 0.0)
+                            ForEach(Emotions.allCases, id: \.self){ emotion in
+                                Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor( .pink)).saturation(entry.emotionSelected == emotion.getString()  ? 1.0 : 0.0)
                                 Spacer()
                             }
                         }
+                        Text(entry.createdAt!.journalDateString).font(.title2).bold().padding(.top)
                         if(entry.prompt != nil && entry.prompt!.value != ""){
-                            VStack{
-                                    HStack{
-                                        Text("Prompt").font(.title2).bold()
-                                        Spacer()
-                                    }
-                                    HStack{
-                                        Text(entry.prompt!.value!).font(.system(.headline, design: .serif)).fixedSize(horizontal: false, vertical: true)
-                                        Spacer()
-                                    }
-                                    .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
-                            }.padding(.top)
+                            HStack{
+                                Text(entry.prompt!.value!).font(.system(.headline, design: .serif)).fixedSize(horizontal: false, vertical: true)
+                                Spacer()
+                            }
+                            .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
                         }
                         Divider()
                         Text(entry.text!).font(.system(.body, design: .serif))
-                        .padding(.top)
-                        .fixedSize(horizontal: false, vertical: true)
+                            .padding(.top)
+                            .fixedSize(horizontal: false, vertical: true)
                     }.padding()
                     Spacer()
-                    }
                 }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("")

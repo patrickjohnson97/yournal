@@ -21,41 +21,47 @@ struct ProfileView: View {
                         .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
                         Divider()
                         HStack{
-                            VStack{
-                                HStack{
-                                    Text("Highest Highs").font(.system(.headline, design: .serif)).foregroundColor(Color("Background"))
+                            NavigationLink(destination: HighestHighsView(journalViewModel: journalViewModel), label: {
+                                VStack{
+                                    HStack{
+                                        Text("Highest Highs").font(.system(.headline, design: .serif)).foregroundColor(Color("Background"))
+                                        Spacer()
+                                    }
+                                    .padding()
                                     Spacer()
+                                    Chart(data: [1, 4, 1])
+                                        .chartStyle(
+                                            LineChartStyle(.quadCurve, lineColor: Color("Background"), lineWidth: 3)
+                                        )
+                                        .frame(height:14)
+                                        .padding(.top)
                                 }
-                                .padding()
-                                Spacer()
-                                Chart(data: [1, 4, 1])
-                                    .chartStyle(
-                                        LineChartStyle(.quadCurve, lineColor: Color("Background"), lineWidth: 3)
-                                    )
-                                    .padding(.top)
-                            }
-                            .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color.pink).saturation(0.1))
-                            VStack{
-                                HStack{
-                                    Text("Lowest Lows").font(.system(.headline, design: .serif)).foregroundColor(Color("Background"))
+                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color.pink).saturation(0.1))
+                            })
+                            NavigationLink(destination: LowestLowsView(journalViewModel: journalViewModel), label: {
+                                VStack{
+                                    HStack{
+                                        Text("Lowest Lows").font(.system(.headline, design: .serif)).foregroundColor(Color("Background"))
+                                        Spacer()
+                                    }.padding()
                                     Spacer()
-                                }.padding()
-                                Spacer()
-                                
-                                Chart(data: [4, 1, 4])
-                                    .chartStyle(
-                                        LineChartStyle(.quadCurve, lineColor: Color("Background"), lineWidth: 3)
-                                    )
-                                    .padding(.top)
-                            }
-                            .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue).saturation(0.1))
+                                    Chart(data: [4, 1, 4])
+                                        .chartStyle(
+                                            LineChartStyle(.quadCurve, lineColor: Color("Background"), lineWidth: 3)
+                                        )
+                                        .frame(height:14)
+                                        .padding(.top)
+                                }
+                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue).saturation(0.1))
+                            })
+                            .buttonStyle(PlainButtonStyle())
                         }
+                        NavigationLink(destination: EmptyView(), label: {
                         VStack{
                             HStack{
                                 Text("Time Capsule").font(.system(.headline, design: .serif)).foregroundColor(Color("Background"))
                                 Spacer()
                             }.padding()
-                            
                             Spacer()
                             Chart(data: [1, 1.5, 0.5, 2, 0.25, 2, 0.5, 1.5, 1])
                                 .chartStyle(
@@ -63,12 +69,9 @@ struct ProfileView: View {
                                 )
                                 .frame(height:20)
                                 .padding(.top)
-                                
                         }
-                        
                         .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Inverse-Card")))
-                        
-                        
+                        })
                     }.padding(.horizontal)
                     EmptyView()
                 }

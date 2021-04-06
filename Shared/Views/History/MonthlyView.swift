@@ -22,14 +22,15 @@ struct MonthlyView: View {
                 Spacer()
                 let monthInt = Calendar.current.component(.month, from: currentMonth)
                 let monthStr = Calendar.current.monthSymbols[monthInt-1]
-                Text(monthStr).bold()
+                let yearInt = Calendar.current.component(.year, from: currentMonth)
+                Text("\(monthStr) \(String(yearInt))").bold()
                 Spacer()
                 Button(action: {currentMonth = currentMonth.monthAfter}, label: {
                     Image(systemName: "chevron.forward.2")
                 })
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
             }
-            .padding(.top)
+//            .padding(.top)
             let days = getAllDays()
             let columns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
             LazyVGrid(columns: columns, spacing: 0) {
@@ -52,6 +53,7 @@ struct MonthlyView: View {
             }
                 JournalListView(journals: journalViewModel.entries(at: selectedDate))
             }
+            .padding(.horizontal)
         }
     }
     

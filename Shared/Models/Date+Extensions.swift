@@ -54,4 +54,11 @@ extension Date {
         let day = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self))
         return day == endOfMonth
     }
+    
+    var journalDateString: String {
+        let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+        let dayName = Calendar.current.weekdaySymbols[components.weekday!-1]
+        let monthName = Calendar.current.monthSymbols[components.month!-1]
+        return "\(dayName) \(monthName) \(components.day!), \(components.year!)"
+    }
 }

@@ -14,9 +14,8 @@ struct NewJournalView: View {
 
     @State var prompt: Prompt?
     @Environment(\.presentationMode) var presentationMode
-    @State var emotionSelected: String?
+    @State var emotionSelected: Emotions?
     @State var helpButtonSelected: Bool = false
-    var emotions = ["happy", "medium-happy", "average", "medium-sad", "sad"]
     private var sentiment: Double {
         return Double(performSentimentAnalysis(for: text)) ?? 0.0
     }
@@ -42,7 +41,7 @@ struct NewJournalView: View {
                     VStack{
                         HStack{
                             Spacer()
-                            ForEach(emotions, id: \.self){ emotion in
+                            ForEach(Emotions.allCases, id: \.self){ emotion in
                                 Button(action: {selectEmotion(emotion: emotion)}, label: {
                                     Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? .pink : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
                                 })
@@ -73,7 +72,7 @@ struct NewJournalView: View {
     }
     
     private func addJournal(){
-        journalViewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected(), sentiment: sentiment)
+        journalViewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected()!.getString(), sentiment: sentiment)
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -85,7 +84,7 @@ struct NewJournalView: View {
         return sentiment?.rawValue ?? ""
     }
     
-    func selectEmotion(emotion: String){
+    func selectEmotion(emotion: Emotions){
         if(emotionSelected == nil){
             emotionSelected = emotion
         } else if(emotion == emotionSelected){
@@ -95,32 +94,32 @@ struct NewJournalView: View {
         }
     }
     
-    func isEmotionSelected(emotion: String) -> Bool{
-        getEmotionSelected() == emotion
+    func isEmotionSelected(emotion: Emotions) -> Bool{
+        return emotion == getEmotionSelected()
     }
     
-    func getEmotionSelected() -> String{
+    func getEmotionSelected() -> Emotions?{
         if(emotionSelected != nil){
             return emotionSelected!
         }
         if(emotionSelected == nil){
             if self.sentiment > 0.6{
-                return "happy"
+                return .happy
             }
             if self.sentiment > 0.2 && self.sentiment <= 0.6 {
-                return "medium-happy"
+                return .mediumHappy
             }
             if self.sentiment > -0.2 && self.sentiment <= 0.2 {
-                return "average"
+                return .average
             }
             if self.sentiment > -0.6 && self.sentiment <= -0.2 {
-                return "medium-sad"
+                return .mediumSad
             }
             if self.sentiment >= -1 && self.sentiment <= -0.6 {
-                return "medium-sad"
+                return .sad
             }
         }
-        return ""
+        return nil
     }
 }
 
@@ -195,8 +194,7 @@ struct PromptSection: View {
 
 struct SentimentOnboardingView: View {
     @Binding var isShowing: Bool
-    var emotions: [String] = ["happy", "medium-happy", "average", "medium-sad", "sad"]
-    @State var emotionSelected: String?
+    @State var emotionSelected: Emotions?
     var sentiment: Double = 0.5
     @State var acknowledgeFirst: Bool = false
     @State var acknowledgeSecond: Bool = false
@@ -207,9 +205,9 @@ struct SentimentOnboardingView: View {
             VStack(alignment: .leading){
                 HStack{
                     Spacer()
-                    ForEach(emotions, id: \.self){ emotion in
+                    ForEach(Emotions.allCases, id: \.self){ emotion in
                         Button(action: {selectEmotion(emotion: emotion)}, label: {
-                            Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? .pink : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
+                            Image("\(emotion.getString())-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? .pink : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
                         })
                         Spacer()
                     }
@@ -264,7 +262,7 @@ struct SentimentOnboardingView: View {
         }
     }
     
-    func selectEmotion(emotion: String){
+    func selectEmotion(emotion: Emotions){
         if(emotionSelected == nil){
             emotionSelected = emotion
         } else if(emotion == emotionSelected){
@@ -274,32 +272,32 @@ struct SentimentOnboardingView: View {
         }
     }
     
-    func isEmotionSelected(emotion: String) -> Bool{
+    func isEmotionSelected(emotion: Emotions) -> Bool{
         getEmotionSelected() == emotion
     }
     
-    func getEmotionSelected() -> String{
+    func getEmotionSelected() -> Emotions?{
         if(emotionSelected != nil){
             return emotionSelected!
         }
         if(emotionSelected == nil){
             if self.sentiment > 0.6{
-                return "happy"
+                return .happy
             }
             if self.sentiment > 0.2 && self.sentiment <= 0.6 {
-                return "medium-happy"
+                return .mediumHappy
             }
             if self.sentiment > -0.2 && self.sentiment <= 0.2 {
-                return "average"
+                return .average
             }
             if self.sentiment > -0.6 && self.sentiment <= -0.2 {
-                return "medium-sad"
+                return .mediumSad
             }
             if self.sentiment >= -1 && self.sentiment <= -0.6 {
-                return "medium-sad"
+                return .sad
             }
         }
-        return ""
+        return nil
     }
     
     func proceed(){
