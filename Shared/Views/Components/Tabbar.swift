@@ -12,7 +12,12 @@ struct Tabbar: View {
     @ObservedObject var promptViewModel = PromptViewModel()
     @ObservedObject var journalViewModel = JournalViewModel()
     init(){
-        UITabBar.appearance().barTintColor = UIColor(Color("Background"))
+        let tabAppearance = UITabBarAppearance()
+        tabAppearance.backgroundColor = UIColor(Color("Background"))
+        UITabBar.appearance().standardAppearance = tabAppearance
+//        UITabBar.appearance().backgroundColor = UIColor(Color("Background"))
+//
+//        UITabBar.appearance().barTintColor = UIColor(Color("Background"))
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = UIColor(Color("Background"))

@@ -83,6 +83,7 @@
 		ACFAFB1D261A6B7D00882BFF /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB1B261A6B7D00882BFF /* Emotions.swift */; };
 		ACFAFB23261BE8A500882BFF /* LowestLowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */; };
 		ACFAFB24261BE8A500882BFF /* LowestLowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */; };
+		ACFAFB2B261D41BB00882BFF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFAFB2A261D41BB00882BFF /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		ACFAFB14261A69A400882BFF /* HighestHighsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighestHighsView.swift; sourceTree = "<group>"; };
 		ACFAFB1B261A6B7D00882BFF /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowestLowsView.swift; sourceTree = "<group>"; };
+		ACFAFB2A261D41BB00882BFF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4DE38326180FF800DE095F /* Charts in Frameworks */,
+				ACFAFB2B261D41BB00882BFF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +220,7 @@
 				AC786EDE2607D4E300AB4470 /* Tests iOS */,
 				AC786EE92607D4E300AB4470 /* Tests macOS */,
 				AC786ECC2607D4E300AB4470 /* Products */,
+				ACFAFB29261D41BB00882BFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,6 +364,14 @@
 				AC7870452612B2B300AB4470 /* DailyView.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		ACFAFB29261D41BB00882BFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACFAFB2A261D41BB00882BFF /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
