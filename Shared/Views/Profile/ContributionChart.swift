@@ -9,18 +9,15 @@ import SwiftUI
 
 struct ContributionChart: View {
     @ObservedObject var journalViewModel: JournalViewModel
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         let boxSize: CGFloat = 18
         let rows: [GridItem] = Array(repeating: GridItem(.flexible(minimum: boxSize)), count: 7)
         VStack{
-            HStack{
-                Text("Streaks").font(.system(.headline, design: .serif)).foregroundColor(Color("Inverse-Background"))
-                Spacer()
-            }
             LazyHGrid(rows: rows) {
                 ForEach((0...89).reversed(), id: \.self){ daysAgo in
                     let entries = journalViewModel.entries(at: Calendar.current.date(byAdding: .day, value: -daysAgo, to: Date())!)
-                    RoundedRectangle(cornerRadius: 3).foregroundColor(entries.isEmpty ? Color("Background"): Color.accentColor).brightness(entries.isEmpty ? 0 :  calculateSaturation(entries: Double(entries.count)))
+                    RoundedRectangle(cornerRadius: 3).foregroundColor(entries.isEmpty ? getThemeColor(name:"Background", theme: theme): Color.accentColor).brightness(entries.isEmpty ? 0 :  calculateSaturation(entries: Double(entries.count)))
                         .frame(width: boxSize)
                 }
             }

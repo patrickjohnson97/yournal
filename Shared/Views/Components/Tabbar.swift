@@ -11,46 +11,22 @@ struct Tabbar: View {
     @State var showWelcomeScreen = false
     @ObservedObject var promptViewModel = PromptViewModel()
     @ObservedObject var journalViewModel = JournalViewModel()
-    init(){
-        let tabAppearance = UITabBarAppearance()
-        tabAppearance.backgroundColor = UIColor(Color("Background"))
-        UITabBar.appearance().standardAppearance = tabAppearance
-//        UITabBar.appearance().backgroundColor = UIColor(Color("Background"))
-//
-//        UITabBar.appearance().barTintColor = UIColor(Color("Background"))
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(Color("Background"))
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().standardAppearance = appearance
-        UITextView.appearance().backgroundColor = .clear
-        UITextView.appearance().showsVerticalScrollIndicator = false
-    }
+    @AppStorage("user.theme") var currentTheme: String = "Standard"
+
     var body: some View {
-        TabView {
-            
-            NavigationView{
-                TodayView(journalViewModel: journalViewModel)
-            }
-            .tabItem {
-                Label("Today", systemImage: "doc.append")
-            }
-            
-            HistoryView(journalViewModel: journalViewModel)
-            .tabItem {
-                Label("History", systemImage: "calendar")
-            }
-            ProfileView(journalViewModel: journalViewModel)
-                .tabItem {
-                    Label("Profile", systemImage: "person")
+        VStack{
+            ForEach(themes){ theme in
+                if(currentTheme == theme.name){
+                    ThemeTabbar(journalViewModel: journalViewModel, promptViewModel: promptViewModel, theme: theme.name)
                 }
+            }
         }
         .sheet(isPresented: $showWelcomeScreen, onDismiss: {setUpUser()}, content: {
             WelcomeScreenView(showWelcomeScreen: $showWelcomeScreen)
         })
+        .accentColor(getThemeColor(name: "Inferred", theme: currentTheme))
         .onAppear(perform: {
             showWelcomeScreen = !UserDefaults.standard.bool(forKey: "userWelcomed")
-//            showWelcomeScreen = true
             promptViewModel.loadPrompts()
             journalViewModel.loadAllJournals()
         })

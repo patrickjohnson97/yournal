@@ -9,23 +9,24 @@ import SwiftUI
 
 struct PromptsView: View {
     @ObservedObject var promptViewModel = PromptViewModel()
+    @AppStorage("user.theme") var theme: String = "Standard"
     @State var showNewPromptSheet = false
     @State var newPrompt = ""
     init() {
-       UITableView.appearance().backgroundColor = UIColor(Color("Background"))
+        UITableView.appearance().backgroundColor = UIColor(getThemeColor(name: "Background", theme: theme))
     }
     var body: some View {
         ZStack{
             Background()
             List{
                 if(showNewPromptSheet){
-                    TextField("Describe your day...", text: $newPrompt).listRowBackground(Color("Background"))
+                    TextField("Describe your day...", text: $newPrompt).listRowBackground(getThemeColor(name: "Background", theme: theme))
                 }
                 ForEach(promptViewModel.prompts.indices, id: \.self){ index in
                     Text(promptViewModel.prompts[index].value!)
                 }
                 .onDelete(perform: deletePrompt)
-                .listRowBackground(Color("Background"))
+                .listRowBackground(getThemeColor(name:"Background", theme: theme))
             }
         }
         .onAppear(perform: {

@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-
+import UserNotifications
 struct SettingsView: View {
-    @State var isNotificationsOn = false
+    @State var isNotificationsOn: Bool = UserDefaults.standard.bool(forKey: "user.dailynotifications")
     var body: some View {
         ZStack{
             Background()
@@ -25,7 +25,7 @@ struct SettingsView: View {
                     })
                     .buttonStyle(PlainButtonStyle())
                     Divider()
-                    NavigationLink(destination: PromptsView(), label: {
+                    NavigationLink(destination: ThemePickerView(), label: {
                         HStack{
                             Image(systemName: "paintbrush.fill").foregroundColor(.accentColor)
                             Text("Theme")
@@ -38,21 +38,16 @@ struct SettingsView: View {
                     
                     HStack{
                         Image(systemName: "bell.fill").foregroundColor(.accentColor)
-                        Text("Journal Reminders")
+                        Text("Journal Reminders").lineLimit(1)
                         Spacer()
                         Toggle(isOn: $isNotificationsOn, label: {
                             
-                        }).toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                    }
-                    
-                    Divider()
-                    HStack{
-                        Image(systemName: "eyeglasses").foregroundColor(.accentColor)
-                        Text("Emotional Assistant")
-                        Spacer()
-                        Toggle(isOn: $isNotificationsOn, label: {
-                            
-                        }).toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                        })
+                        .onReceive([self.isNotificationsOn].publisher.first()) { (value) in
+                                print("New value is: \(value)")
+                                toggleNotificationSettings()
+                           }
+                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     ExtraSettings()
                 }
@@ -60,6 +55,40 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
+    }
+    
+    func toggleNotificationSettings(){
+        if(isNotificationsOn){
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UserDefaults.standard.setValue(true, forKey: "user.dailynotifications")
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])  {
+                success, error in
+                if success {
+                    print("authorization granted")
+                } else if error != nil{}
+                
+                
+            }
+            // 2.
+            let content = UNMutableNotificationContent()
+            content.title = "Do it for the streak 😤"
+            content.body = "It's time for your daily journal📔"
+            content.sound = UNNotificationSound.default
+                        
+            // 4.
+            var dateComponents = DateComponents()
+            dateComponents.hour = 19
+            dateComponents.minute = 50
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+            
+            // 5.
+            UNUserNotificationCenter.current().add(request)
+        } else{
+            UserDefaults.standard.setValue(false, forKey: "user.dailynotifications")
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
     }
 }
 
@@ -97,7 +126,7 @@ struct ExtraSettings: View{
                 }
             })
             .buttonStyle(PlainButtonStyle())
-           
+            
         }
     }
 }

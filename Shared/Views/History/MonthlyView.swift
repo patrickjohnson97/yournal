@@ -11,6 +11,7 @@ struct MonthlyView: View {
     @Binding var selectedDate: Date
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentMonth: Date = Date()
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         ScrollView(showsIndicators: false){
             VStack{
@@ -30,20 +31,19 @@ struct MonthlyView: View {
                 })
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
             }
-//            .padding(.top)
             let days = getAllDays()
             let columns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
-            LazyVGrid(columns: columns, spacing: 0) {
+            LazyVGrid(columns: columns, spacing: 5) {
                 ForEach(days, id: \.self){ day in
                     Button(action: {selectedDate = day}, label: {
                         VStack{
-                            Circle().frame(width: 10, height: 10, alignment: .center).foregroundColor(.pink).opacity(journalViewModel.entries(at: day).isEmpty ? 0 : 1)
+                            Circle().frame(width: 10, height: 10, alignment: .center).foregroundColor(getThemeColor(name:"Chosen", theme: theme)).opacity(journalViewModel.entries(at: day).isEmpty ? 0 : 1)
                             Text(String(day.get(.day))).font(.caption)
                         }
                         .padding(.horizontal, 14)
                         .padding(.vertical, 6)
-                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(lineWidth: journalViewModel.entries(at: day).isEmpty ? 0 : 3).foregroundColor(Color("Card")))
-                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")).opacity(selectedDate == day ? 1 : 0))
+                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(lineWidth: journalViewModel.entries(at: day).isEmpty ? 0 : 3).foregroundColor(getThemeColor(name:"Card", theme: theme)))
+                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)).opacity(selectedDate == day ? 1 : 0))
                         .opacity(Calendar.current.component(.month, from: day) != Calendar.current.component(.month, from: currentMonth) ? 0 : 1)
                     })
                     .disabled(isDateSelectable(day: day) ? false : true)

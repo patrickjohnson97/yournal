@@ -14,10 +14,7 @@ struct MacSidebar: View {
 //                NavigationLink(destination: TodayView()) {
 //                        Label("Today", systemImage: "doc.append")
 //                }
-                NavigationLink(destination: CalendarView(content: { date in
-                    Text("\(date.get(.day))").font(.caption)
-                        .padding(8).overlay(date <= Date() ?  Circle().stroke(lineWidth: 2).frame(width: 26, height: 26, alignment: .center) : nil)
-                })) {
+                NavigationLink(destination: EmptyView()) {
                         Label("History", systemImage: "calendar")
                 }
 //                NavigationLink(destination: ProfileView()) {

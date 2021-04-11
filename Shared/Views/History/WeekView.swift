@@ -11,7 +11,7 @@ struct WeekView: View {
     @Binding var selectedDate: Date
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentWeek: Date = Date()
-    
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         let calendar = Calendar.current
         let startOfCurrentWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentWeek))
@@ -31,7 +31,7 @@ struct WeekView: View {
                             Text(monthStr).font(.caption).bold().opacity((day.isStartOfMonth || day.isEndOfMonth) ? 1 : 0)
                             Button(action: {selectedDate = day}, label: {
                                 DailyView(date: day, journalViewModel: journalViewModel).id(day)
-                                    .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")).opacity(selectedDate == day ? 1 : 0))
+                                    .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)).opacity(selectedDate == day ? 1 : 0))
                             })
                             .disabled(isDateSelectable(day: day) ? false : true)
                             .buttonStyle(PlainButtonStyle())

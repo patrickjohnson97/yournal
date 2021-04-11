@@ -11,11 +11,11 @@ import NaturalLanguage
 struct NewJournalView: View {
     @ObservedObject var journalViewModel: JournalViewModel
     @State var text: String = ""
-
     @State var prompt: Prompt?
     @Environment(\.presentationMode) var presentationMode
     @State var emotionSelected: Emotions?
     @State var helpButtonSelected: Bool = false
+    @AppStorage("user.theme") var theme: String = "Standard"
     private var sentiment: Double {
         return Double(performSentimentAnalysis(for: text)) ?? 0.0
     }
@@ -43,7 +43,7 @@ struct NewJournalView: View {
                             Spacer()
                             ForEach(Emotions.allCases, id: \.self){ emotion in
                                 Button(action: {selectEmotion(emotion: emotion)}, label: {
-                                    Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? .pink : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
+                                    Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? getThemeColor(name:"Chosen", theme: theme) : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
                                 })
                                 Spacer()
                             }
@@ -64,6 +64,7 @@ struct NewJournalView: View {
                 SentimentOnboardingView(isShowing: self.$helpButtonSelected)
             }
         }.edgesIgnoringSafeArea(.bottom)
+        .accentColor(getThemeColor(name: "Inferred", theme: theme))
         .onAppear(perform: {
             helpButtonSelected = !UserDefaults.standard.bool(forKey: "userOnboardedSentiment")
         })
@@ -149,6 +150,7 @@ extension View {
 struct PromptSection: View {
     @ObservedObject var viewModel = PromptViewModel()
     @Binding var prompt: Prompt?
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         VStack{
             if(prompt != nil && prompt!.value != ""){
@@ -156,21 +158,21 @@ struct PromptSection: View {
                     Text("Prompt").font(.title2).bold()
                     Spacer()
                     Button(action: {getPrompt()}, label: {
-                        Image(systemName: "arrow.clockwise").foregroundColor(.blue)
+                        Image(systemName: "arrow.clockwise").foregroundColor(.accentColor)
                             .padding(7)
-                            .background(RoundedRectangle(cornerRadius: 7).foregroundColor(Color.blue.opacity(0.12)))
+                            .background(RoundedRectangle(cornerRadius: 7).foregroundColor(Color.accentColor.opacity(0.12)))
                     }).padding(.trailing, 6)
                     Button(action: {prompt = nil}, label: {
-                        Image(systemName: "trash").foregroundColor(.red)
+                        Image(systemName: "trash").foregroundColor(getThemeColor(name:"Chosen", theme: theme))
                             .padding(7)
-                            .background(RoundedRectangle(cornerRadius: 7).foregroundColor(Color.red.opacity(0.12)))
+                            .background(RoundedRectangle(cornerRadius: 7).foregroundColor(getThemeColor(name:"Chosen", theme: theme).opacity(0.12)))
                     })
                 }
                 HStack{
                     Text(prompt!.value!).font(.system(.headline, design: .serif)).fixedSize(horizontal: false, vertical: true)
                     Spacer()
                 }
-                .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
+                .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
             }
             else{
                 Button(action: {getPrompt()}, label: {
@@ -199,6 +201,7 @@ struct SentimentOnboardingView: View {
     @State var acknowledgeFirst: Bool = false
     @State var acknowledgeSecond: Bool = false
     @State var acknowledgeThird: Bool = false
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         VStack{
             Spacer()
@@ -207,7 +210,7 @@ struct SentimentOnboardingView: View {
                     Spacer()
                     ForEach(Emotions.allCases, id: \.self){ emotion in
                         Button(action: {selectEmotion(emotion: emotion)}, label: {
-                            Image("\(emotion.getString())-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? .pink : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
+                            Image("\(emotion.getString())-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? getThemeColor(name:"Chosen", theme: theme) : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
                         })
                         Spacer()
                     }
@@ -218,25 +221,25 @@ struct SentimentOnboardingView: View {
                         HStack{
                             Text("👋 Hello there! ").bold() +
                                 Text("I am an ") +
-                                Text("Artificial Assistant").bold().foregroundColor(.pink) +
+                                Text("Artificial Assistant").bold().foregroundColor(.accentColor) +
                                 Text(" here to help you assess your emotions.")
                         }
                     }else if(!acknowledgeSecond){
                         HStack{
                             Text("Once you start writing, I'll put a ") +
-                            Text("blue").bold().foregroundColor(.blue) +
-                            Text(" circle around your predicted emotion. If you disagree, change my mind by selecting a different emotion.")
+                            Text("circle").bold().foregroundColor(.accentColor) +
+                            Text(" around your predicted emotion. If you disagree, change my mind by selecting a different emotion.")
                         }
                     } else if(!acknowledgeThird){
                         HStack{
                             Text("To go back to my selection, just press ") +
-                            Text("your selection").bold().foregroundColor(.pink) +
+                                Text("your selection").bold().foregroundColor(getThemeColor(name:"Chosen", theme: theme)) +
                             Text(" again and I will take care of the rest!")
                         }
                     }
                 }
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
+                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
                 .padding()
                 
                 HStack{
@@ -246,18 +249,13 @@ struct SentimentOnboardingView: View {
                     })
                     .padding(.vertical, 8)
                     .padding(.horizontal, 20)
-                    .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.blue))
+                    .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.accentColor))
                     Spacer()
                 }
-                //                        Button(action: {acknowledgeThird = true}, label: {
-                //                            Text("Continue").foregroundColor(.white)
-                //                        })
-                //                        .padding()
-                //                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(.blue))
                 Rectangle().frame(height: 100).hidden()
             }
             .padding()
-            .background(Rectangle().foregroundColor(Color("Background")))
+            .background(Rectangle().foregroundColor(getThemeColor(name:"Background", theme: theme)))
             .cornerRadius(30, corners: [.topLeft, .topRight])
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JournalDetailView: View {
+    @AppStorage("user.theme") var theme: String = "Standard"
     var entry: JournalEntry
     var body: some View {
         ZStack{
@@ -18,7 +19,7 @@ struct JournalDetailView: View {
                         HStack{
                             Spacer()
                             ForEach(Emotions.allCases, id: \.self){ emotion in
-                                Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor( .pink)).saturation(entry.emotionSelected == emotion.getString()  ? 1.0 : 0.0)
+                                Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor( getThemeColor(name:"Chosen", theme: theme))).saturation(entry.emotionSelected == emotion.getString()  ? 1.0 : 0.0)
                                 Spacer()
                             }
                         }
@@ -28,7 +29,7 @@ struct JournalDetailView: View {
                                 Text(entry.prompt!.value!).font(.system(.headline, design: .serif)).fixedSize(horizontal: false, vertical: true)
                                 Spacer()
                             }
-                            .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
+                            .padding().background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
                         }
                         Divider()
                         Text(entry.text!).font(.system(.body, design: .serif))

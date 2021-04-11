@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 extension Date {
     
     var dayAfter: Date {
@@ -60,5 +60,13 @@ extension Date {
         let dayName = Calendar.current.weekdaySymbols[components.weekday!-1]
         let monthName = Calendar.current.monthSymbols[components.month!-1]
         return "\(dayName) \(monthName) \(components.day!), \(components.year!)"
+    }
+    
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+    
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
     }
 }

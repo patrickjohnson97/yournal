@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1A4A112622714C00DBAC4D /* ThemeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */; };
+		AC1A4A122622714C00DBAC4D /* ThemeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */; };
 		AC4DE36F2617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
 		AC4DE3702617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
 		AC4DE37726180CF100DE095F /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE37626180CF100DE095F /* PromptsView.swift */; };
@@ -26,10 +28,6 @@
 		AC786EF62607D4E300AB4470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC786EC62607D4E300AB4470 /* Assets.xcassets */; };
 		AC786F122607F8B800AB4470 /* IpadSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F112607F8B800AB4470 /* IpadSidebar.swift */; };
 		AC786F202607FE5000AB4470 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F1F2607FE5000AB4470 /* Tabbar.swift */; };
-		AC786F262607FFF600AB4470 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F252607FFF600AB4470 /* CalendarView.swift */; };
-		AC786F272607FFF600AB4470 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F252607FFF600AB4470 /* CalendarView.swift */; };
-		AC786F2D2608000400AB4470 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F2C2608000400AB4470 /* ListView.swift */; };
-		AC786F2E2608000400AB4470 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F2C2608000400AB4470 /* ListView.swift */; };
 		AC786F342608004100AB4470 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F332608004100AB4470 /* ProfileView.swift */; };
 		AC786F352608004100AB4470 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F332608004100AB4470 /* ProfileView.swift */; };
 		AC786F3B2608005300AB4470 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F3A2608005300AB4470 /* SettingsView.swift */; };
@@ -77,6 +75,17 @@
 		AC78704E261576B600AB4470 /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78704C261576B500AB4470 /* MonthlyView.swift */; };
 		AC7870542616B28400AB4470 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870532616B28300AB4470 /* Date+Extensions.swift */; };
 		AC7870552616B28400AB4470 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870532616B28300AB4470 /* Date+Extensions.swift */; };
+		ACB66258262370E60034B5EE /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB66257262370E60034B5EE /* ThemePickerView.swift */; };
+		ACB66259262370E60034B5EE /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB66257262370E60034B5EE /* ThemePickerView.swift */; };
+		ACB6625F26237F7B0034B5EE /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6625E26237F7B0034B5EE /* ThemeViewModel.swift */; };
+		ACB6626026237F7B0034B5EE /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6625E26237F7B0034B5EE /* ThemeViewModel.swift */; };
+		ACB66274262389710034B5EE /* TabbarContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB66273262389710034B5EE /* TabbarContents.swift */; };
+		ACB66275262389710034B5EE /* TabbarContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB66273262389710034B5EE /* TabbarContents.swift */; };
+		ACB6628E26239CBC0034B5EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6628D26239CBC0034B5EE /* Theme.swift */; };
+		ACB6628F26239CBC0034B5EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6628D26239CBC0034B5EE /* Theme.swift */; };
+		ACB662952623A9C60034B5EE /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F1F2607FE5000AB4470 /* Tabbar.swift */; };
+		ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
+		ACB662A02623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACFAFB15261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB1B261A6B7D00882BFF /* Emotions.swift */; };
@@ -104,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUtilities.swift; sourceTree = "<group>"; };
 		AC4DE36E2617D07B00DE095F /* ContributionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionChart.swift; sourceTree = "<group>"; };
 		AC4DE37626180CF100DE095F /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		AC786EC22607D4E300AB4470 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -124,8 +134,6 @@
 		AC786EEC2607D4E300AB4470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC786F112607F8B800AB4470 /* IpadSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpadSidebar.swift; sourceTree = "<group>"; };
 		AC786F1F2607FE5000AB4470 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
-		AC786F252607FFF600AB4470 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		AC786F2C2608000400AB4470 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		AC786F332608004100AB4470 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AC786F3A2608005300AB4470 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AC786F412608006400AB4470 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -150,6 +158,11 @@
 		AC7870452612B2B300AB4470 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		AC78704C261576B500AB4470 /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		AC7870532616B28300AB4470 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		ACB66257262370E60034B5EE /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		ACB6625E26237F7B0034B5EE /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		ACB66273262389710034B5EE /* TabbarContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarContents.swift; sourceTree = "<group>"; };
+		ACB6628D26239CBC0034B5EE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTabbar.swift; sourceTree = "<group>"; };
 		ACFAFB14261A69A400882BFF /* HighestHighsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighestHighsView.swift; sourceTree = "<group>"; };
 		ACFAFB1B261A6B7D00882BFF /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowestLowsView.swift; sourceTree = "<group>"; };
@@ -190,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC1A4A172622715400DBAC4D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		AC4DE3692617C4BC00DE095F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +219,7 @@
 				AC4DE36E2617D07B00DE095F /* ContributionChart.swift */,
 				ACFAFB14261A69A400882BFF /* HighestHighsView.swift */,
 				ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */,
+				ACB66257262370E60034B5EE /* ThemePickerView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -227,6 +249,7 @@
 		AC786EC02607D4E300AB4470 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				AC1A4A172622715400DBAC4D /* Utilities */,
 				AC786F0B2607E00000AB4470 /* ViewModels */,
 				AC786F0A2607DFF900AB4470 /* Models */,
 				AC786F092607D9EB00AB4470 /* Views */,
@@ -294,8 +317,6 @@
 				AC786FD42609437E00AB4470 /* Welcome */,
 				AC786F482608016800AB4470 /* Journal */,
 				AC786F102607F8A800AB4470 /* Components */,
-				AC786F252607FFF600AB4470 /* CalendarView.swift */,
-				AC786F2C2608000400AB4470 /* ListView.swift */,
 				AC786F412608006400AB4470 /* TodayView.swift */,
 			);
 			path = Views;
@@ -309,6 +330,7 @@
 				AC787002260A68A100AB4470 /* NotificationName+Extension.swift */,
 				AC7870532616B28300AB4470 /* Date+Extensions.swift */,
 				ACFAFB1B261A6B7D00882BFF /* Emotions.swift */,
+				ACB6628D26239CBC0034B5EE /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +340,7 @@
 			children = (
 				AC786FED260A533900AB4470 /* JournalViewModel.swift */,
 				AC787020260A819000AB4470 /* PromptViewModel.swift */,
+				ACB6625E26237F7B0034B5EE /* ThemeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -325,9 +348,11 @@
 		AC786F102607F8A800AB4470 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */,
 				AC786F112607F8B800AB4470 /* IpadSidebar.swift */,
 				AC786FA0260846CD00AB4470 /* MacSidebar.swift */,
 				AC786F1F2607FE5000AB4470 /* Tabbar.swift */,
+				ACB66273262389710034B5EE /* TabbarContents.swift */,
 				AC786FBF260905C100AB4470 /* Background.swift */,
 				AC786FC626090A2700AB4470 /* TextEntryView.swift */,
 				AC786FCD260911FE00AB4470 /* AdaptsToKeyboard.swift */,
@@ -539,20 +564,21 @@
 			files = (
 				AC786FEE260A533A00AB4470 /* JournalViewModel.swift in Sources */,
 				AC78702C2611799400AB4470 /* InitializePrompts.swift in Sources */,
-				AC786F2D2608000400AB4470 /* ListView.swift in Sources */,
 				AC4DE37726180CF100DE095F /* PromptsView.swift in Sources */,
 				AC786FF5260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
 				ACFAFB15261A69A400882BFF /* HighestHighsView.swift in Sources */,
 				AC4DE36F2617D07B00DE095F /* ContributionChart.swift in Sources */,
+				AC1A4A112622714C00DBAC4D /* ThemeUtilities.swift in Sources */,
 				AC786FD62609444400AB4470 /* WelcomeScreenView.swift in Sources */,
 				AC786F342608004100AB4470 /* ProfileView.swift in Sources */,
+				ACB6625F26237F7B0034B5EE /* ThemeViewModel.swift in Sources */,
+				ACB66274262389710034B5EE /* TabbarContents.swift in Sources */,
 				AC786F122607F8B800AB4470 /* IpadSidebar.swift in Sources */,
 				AC7870342612AF7900AB4470 /* HistoryView.swift in Sources */,
 				AC787021260A819000AB4470 /* PromptViewModel.swift in Sources */,
 				AC7870542616B28400AB4470 /* Date+Extensions.swift in Sources */,
 				AC786F4A2608017E00AB4470 /* NewJournalView.swift in Sources */,
 				AC786FC0260905C100AB4470 /* Background.swift in Sources */,
-				AC786F262607FFF600AB4470 /* CalendarView.swift in Sources */,
 				AC786F51260801A900AB4470 /* JournalEditView.swift in Sources */,
 				AC786FA1260846CD00AB4470 /* MacSidebar.swift in Sources */,
 				AC786F422608006400AB4470 /* TodayView.swift in Sources */,
@@ -561,6 +587,7 @@
 				AC787003260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
 				AC786F58260801D400AB4470 /* JournalDetailView.swift in Sources */,
 				AC786FCE260911FE00AB4470 /* AdaptsToKeyboard.swift in Sources */,
+				ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */,
 				AC786EF32607D4E300AB4470 /* Persistence.swift in Sources */,
 				AC786F202607FE5000AB4470 /* Tabbar.swift in Sources */,
 				AC786EED2607D4E300AB4470 /* yournal.xcdatamodeld in Sources */,
@@ -568,8 +595,10 @@
 				ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */,
 				ACFAFB23261BE8A500882BFF /* LowestLowsView.swift in Sources */,
 				AC78704D261576B600AB4470 /* MonthlyView.swift in Sources */,
+				ACB66258262370E60034B5EE /* ThemePickerView.swift in Sources */,
 				AC786F5F2608021900AB4470 /* JournalQuickView.swift in Sources */,
 				AC78703F2612B2A400AB4470 /* WeekView.swift in Sources */,
+				ACB6628E26239CBC0034B5EE /* Theme.swift in Sources */,
 				AC787016260A7F4200AB4470 /* Prompt+Extension.swift in Sources */,
 				AC786FC726090A2700AB4470 /* TextEntryView.swift in Sources */,
 				AC786EF12607D4E300AB4470 /* ContentView.swift in Sources */,
@@ -580,29 +609,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB6626026237F7B0034B5EE /* ThemeViewModel.swift in Sources */,
 				AC786F52260801A900AB4470 /* JournalEditView.swift in Sources */,
 				AC786FA2260846CD00AB4470 /* MacSidebar.swift in Sources */,
 				ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */,
+				ACB662952623A9C60034B5EE /* Tabbar.swift in Sources */,
 				AC78704E261576B600AB4470 /* MonthlyView.swift in Sources */,
+				ACB66259262370E60034B5EE /* ThemePickerView.swift in Sources */,
 				AC786FF6260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
-				AC786F272607FFF600AB4470 /* CalendarView.swift in Sources */,
 				AC7870472612B2B300AB4470 /* DailyView.swift in Sources */,
 				AC78702D2611799400AB4470 /* InitializePrompts.swift in Sources */,
 				AC787004260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
 				AC786F3C2608005300AB4470 /* SettingsView.swift in Sources */,
 				AC786EF02607D4E300AB4470 /* yournalApp.swift in Sources */,
-				AC786F2E2608000400AB4470 /* ListView.swift in Sources */,
 				AC786F432608006400AB4470 /* TodayView.swift in Sources */,
 				AC786F602608021900AB4470 /* JournalQuickView.swift in Sources */,
+				AC1A4A122622714C00DBAC4D /* ThemeUtilities.swift in Sources */,
 				AC787017260A7F4200AB4470 /* Prompt+Extension.swift in Sources */,
 				AC786F4B2608017E00AB4470 /* NewJournalView.swift in Sources */,
+				ACB6628F26239CBC0034B5EE /* Theme.swift in Sources */,
 				AC786EF42607D4E300AB4470 /* Persistence.swift in Sources */,
 				AC786EEE2607D4E300AB4470 /* yournal.xcdatamodeld in Sources */,
 				ACFAFB24261BE8A500882BFF /* LowestLowsView.swift in Sources */,
 				AC7870402612B2A400AB4470 /* WeekView.swift in Sources */,
 				AC787022260A819000AB4470 /* PromptViewModel.swift in Sources */,
 				AC786FC1260905C100AB4470 /* Background.swift in Sources */,
+				ACB662A02623A9EB0034B5EE /* ThemeTabbar.swift in Sources */,
 				AC7870352612AF7900AB4470 /* HistoryView.swift in Sources */,
+				ACB66275262389710034B5EE /* TabbarContents.swift in Sources */,
 				AC786FEF260A533A00AB4470 /* JournalViewModel.swift in Sources */,
 				AC4DE3702617D07B00DE095F /* ContributionChart.swift in Sources */,
 				AC786F352608004100AB4470 /* ProfileView.swift in Sources */,

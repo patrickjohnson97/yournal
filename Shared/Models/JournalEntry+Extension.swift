@@ -63,7 +63,6 @@ extension JournalEntry {
         fetchRequest.predicate = datePredicate
         do {
             let items = try context.fetch(fetchRequest)
-            print(items.first?.createdAt)
             return items
         }
         catch let error as NSError {

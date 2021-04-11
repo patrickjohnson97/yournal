@@ -13,7 +13,7 @@ struct TodayView: View {
     @State var showNewJournalSheet: Bool = false
     var body: some View {
         ZStack{
-            Rectangle().edgesIgnoringSafeArea(.all).foregroundColor(Color("Background"))
+            Background()
             ScrollView{
                 Button(action: {showNewJournalSheet = true}, label: {
                     HStack{
@@ -29,6 +29,7 @@ struct TodayView: View {
                 })
                 let journals = journalViewModel.entries(at: Date())
                 if !journals.isEmpty {
+                    Divider().padding(.horizontal)
                     HStack{
                         Text("Journals").font(.title2).bold()
                         Spacer()
@@ -81,6 +82,7 @@ struct TodayView_Previews: PreviewProvider {
 
 struct JournalListView: View {
     var journals: [JournalEntry]
+    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         VStack(alignment: .leading){
             ForEach(journals.indices, id: \.self){ index in
@@ -96,6 +98,6 @@ struct JournalListView: View {
             }
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(Color("Card")))
+        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
     }
 }
