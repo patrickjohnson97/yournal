@@ -50,7 +50,7 @@ struct WeekView: View {
             }
         }
         ScrollView{
-            JournalListView(journals: journalViewModel.entries(at: selectedDate))
+            JournalListView(journals: journalViewModel.entries(at: selectedDate), journalViewModel: journalViewModel)
         }
     }
     

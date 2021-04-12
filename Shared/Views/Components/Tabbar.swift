@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import AlertToast
 struct Tabbar: View {
     @State var showWelcomeScreen = false
     @ObservedObject var promptViewModel = PromptViewModel()
@@ -29,6 +30,13 @@ struct Tabbar: View {
             showWelcomeScreen = !UserDefaults.standard.bool(forKey: "userWelcomed")
             promptViewModel.loadPrompts()
             journalViewModel.loadAllJournals()
+        })
+        .toast(isPresenting: $journalViewModel.deleteNotification, duration: 6.0, tapToDismiss: true, alert: {
+            AlertToast(displayMode: .hud, type: .systemImage("trash", getThemeColor(name: "Chosen", theme: currentTheme)), title: "Journal deleted" , subTitle: "Another one bites the dust😕")
+        }, completion: {_ in
+            DispatchQueue.main.async {
+                journalViewModel.deleteNotification = false
+            }
         })
     }
     

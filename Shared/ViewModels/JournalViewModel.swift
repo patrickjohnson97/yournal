@@ -9,7 +9,9 @@ import Foundation
 
 class JournalViewModel: ObservableObject{
     @Published var journals = [JournalEntry]()
+    @Published var deleteNotification = false
     var hasDataLoaded: Bool = false
+    @Published var dataOperationInProgress = false
     init(){
         NotificationCenter.default.addObserver(self, selector: #selector(journalEntryAdded), name: .journalEntryAdded, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(journalEntryWillBeDeleted), name: .journalEntryWillBeDeleted, object: nil)
@@ -45,6 +47,8 @@ class JournalViewModel: ObservableObject{
         if journals.contains(entry) {
             removeFromEntries(entry: entry)
         }
+        self.dataOperationInProgress = false
+        self.deleteNotification = true
     }
     
     // MARK: - Private Utility Functions
@@ -76,6 +80,7 @@ class JournalViewModel: ObservableObject{
     
     // deletes an item.
     func delete(entry: JournalEntry) {
+        dataOperationInProgress = true
         JournalEntry.delete(entry: entry, saveChanges: true)
     }
     

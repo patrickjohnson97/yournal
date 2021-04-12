@@ -14,7 +14,7 @@ struct HighestHighsView: View {
         ZStack{
             Background()
             ScrollView{
-                JournalListView(journals: getJournals()).padding()
+                JournalListView(journals: getJournals(), journalViewModel: journalViewModel).padding()
             }
         }.navigationTitle("Highest Highs")
     }

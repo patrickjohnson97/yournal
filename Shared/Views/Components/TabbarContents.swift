@@ -15,7 +15,7 @@ struct TabbarContents: View {
     var body: some View {
         TabView(selection: $selection) {
             NavigationView{
-                TodayView(journalViewModel: journalViewModel)
+                TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
             }
             .tabItem {
                 Label("Today", systemImage: "doc.append")

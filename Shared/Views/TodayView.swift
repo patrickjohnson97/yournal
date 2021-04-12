@@ -10,6 +10,7 @@ import SwiftUI
 struct TodayView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var journalViewModel: JournalViewModel
+    @ObservedObject var promptViewModel: PromptViewModel
     @State var showNewJournalSheet: Bool = false
     var body: some View {
         ZStack{
@@ -25,7 +26,7 @@ struct TodayView: View {
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 15))
                 .padding()
                 .sheet(isPresented: $showNewJournalSheet, content: {
-                    NewJournalView(journalViewModel: journalViewModel)
+                    NewJournalView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
                 })
                 let journals = journalViewModel.entries(at: Date())
                 if !journals.isEmpty {
@@ -35,7 +36,7 @@ struct TodayView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    JournalListView(journals: journals)
+                    JournalListView(journals: journals, journalViewModel: journalViewModel)
                         .padding(.horizontal)
 
                 }
@@ -68,11 +69,11 @@ struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView{
-                TodayView(journalViewModel: JournalViewModel())
+                TodayView(journalViewModel: JournalViewModel(), promptViewModel: PromptViewModel())
             }
             .preferredColorScheme(.dark)
             NavigationView{
-                TodayView(journalViewModel: JournalViewModel())
+                TodayView(journalViewModel: JournalViewModel(), promptViewModel: PromptViewModel())
             }
             .previewDevice("iPad Pro (12.9-inch) (4th generation)")
             .preferredColorScheme(.dark)
@@ -82,12 +83,13 @@ struct TodayView_Previews: PreviewProvider {
 
 struct JournalListView: View {
     var journals: [JournalEntry]
+    @ObservedObject var journalViewModel: JournalViewModel
     @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
         VStack(alignment: .leading){
             ForEach(journals.indices, id: \.self){ index in
                 NavigationLink(
-                    destination: JournalDetailView(entry: journals[index]),
+                    destination: JournalDetailView(journalViewModel: journalViewModel, entry: journals[index]),
                     label: {
                         JournalQuickView(entry: journals[index])
                     }).buttonStyle(PlainButtonStyle())

@@ -10,6 +10,7 @@ import NaturalLanguage
 
 struct NewJournalView: View {
     @ObservedObject var journalViewModel: JournalViewModel
+    @ObservedObject var promptViewModel: PromptViewModel
     @State var text: String = ""
     @State var prompt: Prompt?
     @Environment(\.presentationMode) var presentationMode
@@ -36,6 +37,7 @@ struct NewJournalView: View {
                     Button(action: {addJournal()}, label: {
                         Text("Done")
                     })
+                    .disabled(text == "")
                 }.padding([.top, .horizontal])
                 ScrollView{
                     VStack{
@@ -48,7 +50,7 @@ struct NewJournalView: View {
                                 Spacer()
                             }
                         }.padding(.bottom)
-                        PromptSection(prompt: $prompt)
+                        PromptSection(promptViewModel: promptViewModel, prompt: $prompt)
                         ZStack(alignment: .topLeading){
                             Text(text == "" ? "Today was a good day ..." : text).opacity(text == "" ? 0.25 : 0).font(.system(.body, design: .serif))
                             TextEditor(text: $text).font(.system(.body, design: .serif))
@@ -73,8 +75,10 @@ struct NewJournalView: View {
     }
     
     private func addJournal(){
-        journalViewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected()!.getString(), sentiment: sentiment)
-        self.presentationMode.wrappedValue.dismiss()
+        if text != "" {
+            journalViewModel.addEntry(prompt: prompt, text: text, emotionSelected: getEmotionSelected()!.getString(), sentiment: sentiment)
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
     
     private func performSentimentAnalysis(for string: String) -> String {
@@ -126,7 +130,7 @@ struct NewJournalView: View {
 
 struct NewJournalView_Previews: PreviewProvider {
     static var previews: some View {
-        NewJournalView(journalViewModel: JournalViewModel())
+        NewJournalView(journalViewModel: JournalViewModel(), promptViewModel: PromptViewModel())
     }
 }
 
@@ -148,7 +152,7 @@ extension View {
 }
 
 struct PromptSection: View {
-    @ObservedObject var viewModel = PromptViewModel()
+    @ObservedObject var promptViewModel: PromptViewModel
     @Binding var prompt: Prompt?
     @AppStorage("user.theme") var theme: String = "Standard"
     var body: some View {
@@ -184,13 +188,10 @@ struct PromptSection: View {
                 })
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
             }
-        }.onAppear(perform: {
-            viewModel.loadPrompts()
-//            viewModel.addPrompt(value: "Tell me about a risk you want to take...")
-        })
+        }
     }
     func getPrompt(){
-        prompt = viewModel.prompts.randomElement()
+        prompt = promptViewModel.prompts.randomElement()
     }
 }
 
