@@ -10,6 +10,7 @@ import SwiftUI
 struct ThemePickerView: View {
     @AppStorage("user.theme") var theme: String = "Standard"
     @AppStorage("user.tab") var selection: String = "Profile"
+    @AppStorage("user.themeChanged") var themeChanged: Bool = false
     var body: some View {
         ZStack{
             Background()
@@ -34,10 +35,14 @@ struct ThemePickerView: View {
         }.navigationTitle("Themes")
     }
     func setTheme(name: String){
-        DispatchQueue.main.async {
-            theme = name
-            print(theme)
-            selection = "Profile"
+        if(theme != name){
+            DispatchQueue.main.async {
+                theme = name
+                selection = "Profile"
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                themeChanged.toggle()
+            })
         }
     }
 }

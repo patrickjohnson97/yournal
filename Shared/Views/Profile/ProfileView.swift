@@ -7,10 +7,13 @@
 
 import SwiftUI
 import Charts
+import AlertToast
 
 struct ProfileView: View {
     @ObservedObject var journalViewModel : JournalViewModel
     @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.themeChanged") var themeChanged: Bool = false
+    @State var showPopup: Bool = false
     var body: some View {
         NavigationView{
             ZStack{
@@ -21,22 +24,15 @@ struct ProfileView: View {
                         HStack{
                             Text("Streaks")
                                 .font(.title2).bold()
-//                                    .font(.system(.headline, design: .serif))
-//                                .foregroundColor(getThemeColor(name:"Inverse-Background"))
                             Spacer()
                         }
-                        VStack{
-                            
-                            ContributionChart(journalViewModel: journalViewModel)
-                        }
+                        ContributionChart(journalViewModel: journalViewModel)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
                         Divider()
                         HStack{
                             Text("Lists")
                                 .font(.title2).bold()
-//                                    .font(.system(.headline, design: .serif))
-//                                .foregroundColor(getThemeColor(name:"Inverse-Background"))
                             Spacer()
                         }
                         HStack{
@@ -44,7 +40,6 @@ struct ProfileView: View {
                                 VStack{
                                     HStack{
                                         Text("Highest Highs")
-//                                            .font(.headline)
                                             .font(.system(.headline, design: .serif))
                                             .foregroundColor(getThemeColor(name:"Background", theme: theme))
                                         Spacer()
@@ -58,13 +53,12 @@ struct ProfileView: View {
                                         .frame(height:14)
                                         .padding(.top)
                                 }
-                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Chosen", theme: theme)).saturation(0.1))
+                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Chosen", theme: theme)))
                             })
                             NavigationLink(destination: LowestLowsView(journalViewModel: journalViewModel), label: {
                                 VStack{
                                     HStack{
                                         Text("Lowest Lows")
-//                                            .font(.headline)
                                             .font(.system(.headline, design: .serif))
                                             .foregroundColor(getThemeColor(name:"Background", theme: theme))
                                         Spacer()
@@ -77,7 +71,7 @@ struct ProfileView: View {
                                         .frame(height:14)
                                         .padding(.top)
                                 }
-                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inferred", theme: theme)).saturation(0.1))
+                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inferred", theme: theme)))
                             })
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -85,7 +79,6 @@ struct ProfileView: View {
                         VStack{
                             HStack{
                                 Text("Time Capsule")
-//                                    .font(.system(.headline, design: .serif))
                                     .foregroundColor(getThemeColor(name:"Background", theme: theme))
                                 Spacer()
                             }.padding()
@@ -104,6 +97,10 @@ struct ProfileView: View {
                     EmptyView()
                 }
             }
+            .onChange(of: themeChanged, perform: { value in
+                showPopup = true
+            })
+            
             .navigationTitle("Profile")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
@@ -114,11 +111,19 @@ struct ProfileView: View {
                 })
             })
         }
+        .toast(isPresenting: $showPopup, duration: 6.0, tapToDismiss: true, alert: {
+            AlertToast(displayMode: .hud, type: .complete(getThemeColor(name: "Chosen", theme: theme)), title: "Theme changed!" , subTitle: "Time to give these colors a spin😎")
+        }, completion: {_ in
+            DispatchQueue.main.async {
+                showPopup = false
+            }
+        })
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(journalViewModel: JournalViewModel())
+        ProfileView(journalViewModel: JournalViewModel()).preferredColorScheme(.dark)
+        ProfileView(journalViewModel: JournalViewModel()).preferredColorScheme(.light)
     }
 }

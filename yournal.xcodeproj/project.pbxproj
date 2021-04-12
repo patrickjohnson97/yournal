@@ -86,6 +86,7 @@
 		ACB662952623A9C60034B5EE /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786F1F2607FE5000AB4470 /* Tabbar.swift */; };
 		ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACB662A02623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
+		ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = ACB662BD2623E2050034B5EE /* AlertToast */; };
 		ACFAFB15261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB1B261A6B7D00882BFF /* Emotions.swift */; };
@@ -174,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */,
 				AC4DE38326180FF800DE095F /* Charts in Frameworks */,
 				ACFAFB2B261D41BB00882BFF /* CloudKit.framework in Frameworks */,
 			);
@@ -417,6 +419,7 @@
 			name = "yournal (iOS)";
 			packageProductDependencies = (
 				AC4DE38226180FF800DE095F /* Charts */,
+				ACB662BD2623E2050034B5EE /* AlertToast */,
 			);
 			productName = "yournal (iOS)";
 			productReference = AC786ECB2607D4E300AB4470 /* yournal.app */;
@@ -511,6 +514,7 @@
 			mainGroup = AC786EBB2607D4E200AB4470;
 			packageReferences = (
 				AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+				ACB662BC2623E2050034B5EE /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = AC786ECC2607D4E300AB4470 /* Products */;
 			projectDirPath = "";
@@ -1044,6 +1048,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		ACB662BC2623E2050034B5EE /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1051,6 +1063,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */;
 			productName = Charts;
+		};
+		ACB662BD2623E2050034B5EE /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACB662BC2623E2050034B5EE /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 
