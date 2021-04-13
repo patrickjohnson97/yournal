@@ -35,6 +35,16 @@ struct SettingsView: View {
                     })
                     .buttonStyle(PlainButtonStyle())
                     Divider()
+                    NavigationLink(destination: IconPickerView(), label: {
+                        HStack{
+                            Image(systemName: "face.smiling.fill").foregroundColor(.accentColor)
+                            Text("Icon")
+                            Spacer()
+                            Image(systemName: "chevron.right").foregroundColor(.gray)
+                        }
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    Divider()
                     
                     HStack{
                         Image(systemName: "bell.fill").foregroundColor(.accentColor)

@@ -17,10 +17,10 @@ struct TabbarContents: View {
             NavigationView{
                 TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
             }
-            .tabItem {
-                Label("Today", systemImage: "doc.append")
-            }
-            .tag("Today")
+                .tabItem {
+                    Label("Today", systemImage: "doc.append")
+                }
+                .tag("Today")
             HistoryView(journalViewModel: journalViewModel)
                 .tabItem {
                     Label("History", systemImage: "calendar")
