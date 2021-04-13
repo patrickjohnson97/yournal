@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Background: View {
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         Rectangle().edgesIgnoringSafeArea(.all).foregroundColor(getThemeColor(name: "Background", theme: theme))
     }

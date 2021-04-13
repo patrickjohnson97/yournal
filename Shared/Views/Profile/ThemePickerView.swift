@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct ThemePickerView: View {
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     @AppStorage("user.tab") var selection: String = "Profile"
     @AppStorage("user.themeChanged") var themeChanged: Bool = false
     var body: some View {
         ZStack{
             Background()
             List{
-                ForEach(themes){ theme in
+                ForEach(themes.sorted(by: {$0.displayName < $1.displayName})){ theme in
                     Button(action: {setTheme(name: theme.name)}, label: {
                         HStack{
                             RoundedRectangle(cornerRadius: 8).frame(width: 30).foregroundColor(Color("\(theme.name)/Background")).overlay(RoundedRectangle(cornerRadius: 8).stroke(lineWidth: 3).foregroundColor(Color("\(theme.name)/Inferred"))).overlay(Circle().frame(width: 8).foregroundColor(Color("\(theme.name)/Chosen")))
-                            Text(theme.displayName)
+                            VStack(alignment: .leading){
+                                Text(theme.displayName).font(.caption).bold()
+                                Text(theme.caption).font(.caption2).foregroundColor(Color("Secondary-Text"))
+                            }
                             Spacer()
+                            if(self.theme == theme.name){
+                                Image(systemName: "checkmark").foregroundColor(.accentColor)
+                            }
                         }
                     })
                     .buttonStyle(PlainButtonStyle())

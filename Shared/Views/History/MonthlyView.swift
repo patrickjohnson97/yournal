@@ -11,7 +11,7 @@ struct MonthlyView: View {
     @Binding var selectedDate: Date
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentMonth: Date = Date()
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         ScrollView(showsIndicators: false){
             VStack{

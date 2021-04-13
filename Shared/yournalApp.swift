@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct yournalApp: App {
     let persistenceController = PersistenceController.shared
-    @AppStorage("user.theme") var theme: String = "Standard"
     var body: some Scene {
         WindowGroup {
             ContentView()

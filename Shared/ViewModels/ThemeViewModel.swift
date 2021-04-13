@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 class ThemeViewModel: ObservableObject{
-    @AppStorage("user.theme") var theme: String = "Standard"{
+    @AppStorage("user.theme") var theme: String = "Parchment"{
         willSet { objectWillChange.send() }
     }
     @Published var observedTheme: String
     init(){
-        observedTheme = "Standard"
+        observedTheme = "Parchment"
     }
     
     func observeTheme(){

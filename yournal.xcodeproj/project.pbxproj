@@ -534,6 +534,7 @@
 		AC786EC02607D4E300AB4470 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				AC39386A26252FB700EB425C /* Icons */,
 				AC1A4A172622715400DBAC4D /* Utilities */,
 				AC786F0B2607E00000AB4470 /* ViewModels */,
 				AC786F0A2607DFF900AB4470 /* Models */,
@@ -561,7 +562,6 @@
 		AC786ECD2607D4E300AB4470 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AC39386A26252FB700EB425C /* Icons */,
 				AC786ECE2607D4E300AB4470 /* Info.plist */,
 			);
 			path = iOS;

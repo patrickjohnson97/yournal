@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContributionChart: View {
     @ObservedObject var journalViewModel: JournalViewModel
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         let boxSize: CGFloat = 18

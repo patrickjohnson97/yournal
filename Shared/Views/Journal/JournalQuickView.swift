@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JournalQuickView: View {
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var entry: JournalEntry
     var body: some View {
         VStack(alignment: .leading){

@@ -11,7 +11,7 @@ struct WeekView: View {
     @Binding var selectedDate: Date
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentWeek: Date = Date()
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         let calendar = Calendar.current
         let startOfCurrentWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentWeek))

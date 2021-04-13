@@ -14,19 +14,23 @@ struct IconPickerView: View {
         ZStack{
             Background()
             List{
-                let themedIcons = iconSettings.iconNames
-                    .filter({
-                    $0 != nil && $0!.contains(theme)
-                })
-                ForEach(themedIcons, id: \.self){ icon in
-                    Button(action: {setIcon(name: icon ?? "Original-\(theme)")}, label: {
+                let iconOptions = getIconOptions()
+                ForEach(iconOptions.sorted(by: {$0.displayName < $1.displayName})){ icon in
+                    Button(action: {setIcon(name: "\(icon.name)-\(theme)")}, label: {
                         HStack{
-                            Image("\(icon ?? "Original-\(theme)")")
+                            Image("\(icon.name)-\(theme)")
                                 .resizable().aspectRatio(contentMode: .fit).frame(width: 40, height: 40).clipped()
                                 .cornerRadius(8)
                                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(lineWidth: 3).foregroundColor(.black).opacity(0.5))
-                            Text(icon ?? "Default")
+                            VStack(alignment: .leading){
+                                Text(icon.displayName).font(.caption).bold()
+                                Text(icon.caption).font(.caption2).foregroundColor(Color("Secondary-Text"))
+                            }
+//                            Text(icon ?? "Default")
                             Spacer()
+                            if(iconSettings.iconNames[iconSettings.currentIndex] == "\(icon.name)-\(theme)"){
+                                Image(systemName: "checkmark").foregroundColor(.accentColor)
+                            }
                         }
                     })
                     .buttonStyle(PlainButtonStyle())
@@ -55,16 +59,17 @@ struct IconPickerView: View {
             print("ALTERNATE ICONS NOT SUPPORTED")
         }
     }
-//    func setTheme(name: String){
-//        if(theme != name){
-//            DispatchQueue.main.async {
-//                theme = name
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-//                themeChanged.toggle()
-//            })
-//        }
-//    }
+}
+
+struct IconOption: Identifiable{
+    var id = UUID()
+    var name: String
+    var displayName: String
+    var caption: String
+}
+
+func getIconOptions() -> [IconOption]{
+    return [IconOption(name: "Enlightened", displayName: "The Enlightened One", caption: "Find the inner you"), IconOption(name: "Original", displayName: "O.G.", caption: "As real as it gets"), IconOption(name: "Chosen", displayName: "The Chosen One", caption: "Pick me!! Pick me!!"), IconOption(name: "Chosen-Light", displayName: "The (Lighter) Chosen One", caption: "Pick me, I'm cute"), IconOption(name: "Inferred", displayName: "The Inferred One", caption: "I knew you'd pick me"), IconOption(name: "Inferred-Light", displayName: "The (Lighter) Inferred One", caption: "I gotta feelin'")]
 }
 
 struct IconPickerView_Previews: PreviewProvider {
@@ -72,3 +77,5 @@ struct IconPickerView_Previews: PreviewProvider {
         IconPickerView()
     }
 }
+
+

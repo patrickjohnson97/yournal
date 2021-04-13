@@ -10,7 +10,7 @@ import SwiftUI
 struct DailyView: View {
     var date: Date
     @ObservedObject var journalViewModel: JournalViewModel
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         let journalEntries = journalViewModel.entries(at: date)
         VStack{

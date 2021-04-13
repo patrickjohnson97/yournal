@@ -84,7 +84,7 @@ struct TodayView_Previews: PreviewProvider {
 struct JournalListView: View {
     var journals: [JournalEntry]
     @ObservedObject var journalViewModel: JournalViewModel
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         VStack(alignment: .leading){
             ForEach(journals.indices, id: \.self){ index in

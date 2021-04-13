@@ -16,7 +16,7 @@ struct NewJournalView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var emotionSelected: Emotions?
     @State var helpButtonSelected: Bool = false
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     private var sentiment: Double {
         return Double(performSentimentAnalysis(for: text)) ?? 0.0
     }
@@ -154,7 +154,7 @@ extension View {
 struct PromptSection: View {
     @ObservedObject var promptViewModel: PromptViewModel
     @Binding var prompt: Prompt?
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         VStack{
             if(prompt != nil && prompt!.value != ""){
@@ -202,7 +202,7 @@ struct SentimentOnboardingView: View {
     @State var acknowledgeFirst: Bool = false
     @State var acknowledgeSecond: Bool = false
     @State var acknowledgeThird: Bool = false
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         VStack{
             Spacer()

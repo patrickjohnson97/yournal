@@ -11,7 +11,7 @@ import AlertToast
 
 struct ProfileView: View {
     @ObservedObject var journalViewModel : JournalViewModel
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     @AppStorage("user.themeChanged") var themeChanged: Bool = false
     @State var showPopup: Bool = false
     var body: some View {

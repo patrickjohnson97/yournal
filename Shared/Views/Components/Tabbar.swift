@@ -12,7 +12,7 @@ struct Tabbar: View {
     @State var showWelcomeScreen = false
     @ObservedObject var promptViewModel = PromptViewModel()
     @ObservedObject var journalViewModel = JournalViewModel()
-    @AppStorage("user.theme") var currentTheme: String = "Standard"
+    @AppStorage("user.theme") var currentTheme: String = "Parchment"
 
     var body: some View {
         VStack{

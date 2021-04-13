@@ -8,7 +8,7 @@
 import SwiftUI
 import AlertToast
 struct JournalDetailView: View {
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     @ObservedObject var journalViewModel: JournalViewModel
     @State var readyToDelete = false
     @State var showConfirmationModal = false

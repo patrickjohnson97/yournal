@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PromptsView: View {
     @ObservedObject var promptViewModel = PromptViewModel()
-    @AppStorage("user.theme") var theme: String = "Standard"
+    @AppStorage("user.theme") var theme: String = "Parchment"
     @State var showNewPromptSheet = false
     @State var newPrompt = ""
     init() {
