@@ -21,7 +21,7 @@
 		AC3938CE26252FD200EB425C /* Original-Sunset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387426252FCE00EB425C /* Original-Sunset@3x.png */; };
 		AC3938CF26252FD200EB425C /* Inferred-Opposite.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387526252FCE00EB425C /* Inferred-Opposite.png */; };
 		AC3938D026252FD200EB425C /* Chosen-Opposite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387626252FCE00EB425C /* Chosen-Opposite@3x.png */; };
-		AC3938D126252FD200EB425C /* Inferred-Light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387726252FCE00EB425C /* Inferred-Light@2x.png */; };
+		AC3938D126252FD200EB425C /* Inferred-Light-Sunset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387726252FCE00EB425C /* Inferred-Light-Sunset@2x.png */; };
 		AC3938D226252FD200EB425C /* Original-Parchment.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387826252FCE00EB425C /* Original-Parchment.png */; };
 		AC3938D326252FD200EB425C /* Original-Pastel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387926252FCE00EB425C /* Original-Pastel@3x.png */; };
 		AC3938D426252FD200EB425C /* Chosen-Pastel@2x-1.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387A26252FCE00EB425C /* Chosen-Pastel@2x-1.png */; };
@@ -30,13 +30,13 @@
 		AC3938D726252FD200EB425C /* Chosen-Light-Growth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387D26252FCE00EB425C /* Chosen-Light-Growth@2x.png */; };
 		AC3938D826252FD200EB425C /* Inferred-Light-Parchment.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387E26252FCE00EB425C /* Inferred-Light-Parchment.png */; };
 		AC3938D926252FD200EB425C /* Chosen-Pastel.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39387F26252FCE00EB425C /* Chosen-Pastel.png */; };
-		AC3938DA26252FD200EB425C /* Inferred-Light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388026252FCE00EB425C /* Inferred-Light@3x.png */; };
+		AC3938DA26252FD200EB425C /* Inferred-Light-Sunset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388026252FCE00EB425C /* Inferred-Light-Sunset@3x.png */; };
 		AC3938DB26252FD200EB425C /* Chosen-Pastel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388126252FCE00EB425C /* Chosen-Pastel@3x.png */; };
 		AC3938DC26252FD200EB425C /* Chosen-Light-Opposite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388226252FCE00EB425C /* Chosen-Light-Opposite@3x.png */; };
 		AC3938DD26252FD200EB425C /* Chosen-Parchment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388326252FCF00EB425C /* Chosen-Parchment@3x.png */; };
 		AC3938DE26252FD200EB425C /* Enlightened-Pastel.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388426252FCF00EB425C /* Enlightened-Pastel.png */; };
 		AC3938DF26252FD200EB425C /* Inferred-Light-Opposite.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388526252FCF00EB425C /* Inferred-Light-Opposite.png */; };
-		AC3938E026252FD200EB425C /* Inferred-Light.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388626252FCF00EB425C /* Inferred-Light.png */; };
+		AC3938E026252FD200EB425C /* Inferred-Light-Sunset.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388626252FCF00EB425C /* Inferred-Light-Sunset.png */; };
 		AC3938E126252FD200EB425C /* Original-Parchment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388726252FCF00EB425C /* Original-Parchment@3x.png */; };
 		AC3938E226252FD200EB425C /* Inferred-Growth@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388826252FCF00EB425C /* Inferred-Growth@3x.png */; };
 		AC3938E326252FD200EB425C /* Inferred-Pastel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC39388926252FCF00EB425C /* Inferred-Pastel@2x.png */; };
@@ -102,6 +102,13 @@
 		AC3939242625339B00EB425C /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3939232625339B00EB425C /* IconNames.swift */; };
 		AC39392A2625356500EB425C /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3939292625356500EB425C /* IconPickerView.swift */; };
 		AC39393F26253A3600EB425C /* Chosen-Growth.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3938A926252FD100EB425C /* Chosen-Growth.png */; };
+		AC3939652626371700EB425C /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3939642626371700EB425C /* TipJarView.swift */; };
+		AC3939662626371700EB425C /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3939642626371700EB425C /* TipJarView.swift */; };
+		AC39396C2626389300EB425C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC39396B2626389300EB425C /* IAPManager.swift */; };
+		AC39396D2626389300EB425C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC39396B2626389300EB425C /* IAPManager.swift */; };
+		AC393974262638DD00EB425C /* Purchases in Frameworks */ = {isa = PBXBuildFile; productRef = AC393973262638DD00EB425C /* Purchases */; };
+		AC39398326266F0200EB425C /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC39398226266F0200EB425C /* ConfettiSwiftUI */; };
+		AC39398426266F0200EB425C /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = AC39398226266F0200EB425C /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AC4DE36F2617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
 		AC4DE3702617D07B00DE095F /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
 		AC4DE37726180CF100DE095F /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE37626180CF100DE095F /* PromptsView.swift */; };
@@ -206,6 +213,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AC39398526266F0200EB425C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC39398426266F0200EB425C /* ConfettiSwiftUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUtilities.swift; sourceTree = "<group>"; };
 		AC39386B26252FCD00EB425C /* Chosen-Light-Parchment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Light-Parchment.png"; sourceTree = "<group>"; };
@@ -220,7 +241,7 @@
 		AC39387426252FCE00EB425C /* Original-Sunset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Original-Sunset@3x.png"; sourceTree = "<group>"; };
 		AC39387526252FCE00EB425C /* Inferred-Opposite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Opposite.png"; sourceTree = "<group>"; };
 		AC39387626252FCE00EB425C /* Chosen-Opposite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Opposite@3x.png"; sourceTree = "<group>"; };
-		AC39387726252FCE00EB425C /* Inferred-Light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light@2x.png"; sourceTree = "<group>"; };
+		AC39387726252FCE00EB425C /* Inferred-Light-Sunset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light-Sunset@2x.png"; sourceTree = "<group>"; };
 		AC39387826252FCE00EB425C /* Original-Parchment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Original-Parchment.png"; sourceTree = "<group>"; };
 		AC39387926252FCE00EB425C /* Original-Pastel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Original-Pastel@3x.png"; sourceTree = "<group>"; };
 		AC39387A26252FCE00EB425C /* Chosen-Pastel@2x-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Pastel@2x-1.png"; sourceTree = "<group>"; };
@@ -229,13 +250,13 @@
 		AC39387D26252FCE00EB425C /* Chosen-Light-Growth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Light-Growth@2x.png"; sourceTree = "<group>"; };
 		AC39387E26252FCE00EB425C /* Inferred-Light-Parchment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light-Parchment.png"; sourceTree = "<group>"; };
 		AC39387F26252FCE00EB425C /* Chosen-Pastel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Pastel.png"; sourceTree = "<group>"; };
-		AC39388026252FCE00EB425C /* Inferred-Light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light@3x.png"; sourceTree = "<group>"; };
+		AC39388026252FCE00EB425C /* Inferred-Light-Sunset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light-Sunset@3x.png"; sourceTree = "<group>"; };
 		AC39388126252FCE00EB425C /* Chosen-Pastel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Pastel@3x.png"; sourceTree = "<group>"; };
 		AC39388226252FCE00EB425C /* Chosen-Light-Opposite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Light-Opposite@3x.png"; sourceTree = "<group>"; };
 		AC39388326252FCF00EB425C /* Chosen-Parchment@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chosen-Parchment@3x.png"; sourceTree = "<group>"; };
 		AC39388426252FCF00EB425C /* Enlightened-Pastel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Enlightened-Pastel.png"; sourceTree = "<group>"; };
 		AC39388526252FCF00EB425C /* Inferred-Light-Opposite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light-Opposite.png"; sourceTree = "<group>"; };
-		AC39388626252FCF00EB425C /* Inferred-Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light.png"; sourceTree = "<group>"; };
+		AC39388626252FCF00EB425C /* Inferred-Light-Sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Light-Sunset.png"; sourceTree = "<group>"; };
 		AC39388726252FCF00EB425C /* Original-Parchment@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Original-Parchment@3x.png"; sourceTree = "<group>"; };
 		AC39388826252FCF00EB425C /* Inferred-Growth@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Growth@3x.png"; sourceTree = "<group>"; };
 		AC39388926252FCF00EB425C /* Inferred-Pastel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Pastel@2x.png"; sourceTree = "<group>"; };
@@ -300,6 +321,8 @@
 		AC3938C426252FD200EB425C /* Inferred-Sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Inferred-Sunset.png"; sourceTree = "<group>"; };
 		AC3939232625339B00EB425C /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 		AC3939292625356500EB425C /* IconPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
+		AC3939642626371700EB425C /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
+		AC39396B2626389300EB425C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		AC4DE36E2617D07B00DE095F /* ContributionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionChart.swift; sourceTree = "<group>"; };
 		AC4DE37626180CF100DE095F /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		AC786EC22607D4E300AB4470 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -360,9 +383,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC39398326266F0200EB425C /* ConfettiSwiftUI in Frameworks */,
 				ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */,
 				AC4DE38326180FF800DE095F /* Charts in Frameworks */,
 				ACFAFB2B261D41BB00882BFF /* CloudKit.framework in Frameworks */,
+				AC393974262638DD00EB425C /* Purchases in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,9 +483,9 @@
 				AC39387E26252FCE00EB425C /* Inferred-Light-Parchment.png */,
 				AC3938AF26252FD100EB425C /* Inferred-Light-Parchment@2x.png */,
 				AC3938B826252FD200EB425C /* Inferred-Light-Parchment@3x.png */,
-				AC39388626252FCF00EB425C /* Inferred-Light.png */,
-				AC39387726252FCE00EB425C /* Inferred-Light@2x.png */,
-				AC39388026252FCE00EB425C /* Inferred-Light@3x.png */,
+				AC39388626252FCF00EB425C /* Inferred-Light-Sunset.png */,
+				AC39387726252FCE00EB425C /* Inferred-Light-Sunset@2x.png */,
+				AC39388026252FCE00EB425C /* Inferred-Light-Sunset@3x.png */,
 				AC39387526252FCE00EB425C /* Inferred-Opposite.png */,
 				AC39389B26252FD000EB425C /* Inferred-Opposite@2x.png */,
 				AC3938B026252FD100EB425C /* Inferred-Opposite@3x.png */,
@@ -628,6 +653,7 @@
 				AC787020260A819000AB4470 /* PromptViewModel.swift */,
 				ACB6625E26237F7B0034B5EE /* ThemeViewModel.swift */,
 				AC3939232625339B00EB425C /* IconNames.swift */,
+				AC39396B2626389300EB425C /* IAPManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -643,6 +669,7 @@
 				AC786FBF260905C100AB4470 /* Background.swift */,
 				AC786FC626090A2700AB4470 /* TextEntryView.swift */,
 				AC786FCD260911FE00AB4470 /* AdaptsToKeyboard.swift */,
+				AC3939642626371700EB425C /* TipJarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -696,6 +723,7 @@
 				AC786EC72607D4E300AB4470 /* Sources */,
 				AC786EC82607D4E300AB4470 /* Frameworks */,
 				AC786EC92607D4E300AB4470 /* Resources */,
+				AC39398526266F0200EB425C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -705,6 +733,8 @@
 			packageProductDependencies = (
 				AC4DE38226180FF800DE095F /* Charts */,
 				ACB662BD2623E2050034B5EE /* AlertToast */,
+				AC393973262638DD00EB425C /* Purchases */,
+				AC39398226266F0200EB425C /* ConfettiSwiftUI */,
 			);
 			productName = "yournal (iOS)";
 			productReference = AC786ECB2607D4E300AB4470 /* yournal.app */;
@@ -800,6 +830,8 @@
 			packageReferences = (
 				AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */,
 				ACB662BC2623E2050034B5EE /* XCRemoteSwiftPackageReference "AlertToast" */,
+				AC393972262638DD00EB425C /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				AC39398126266F0200EB425C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = AC786ECC2607D4E300AB4470 /* Products */;
 			projectDirPath = "";
@@ -818,11 +850,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3938DA26252FD200EB425C /* Inferred-Light@3x.png in Resources */,
+				AC3938DA26252FD200EB425C /* Inferred-Light-Sunset@3x.png in Resources */,
 				AC3938C726252FD200EB425C /* Enlightened-Growth.png in Resources */,
 				AC3938EA26252FD200EB425C /* Chosen-Pastel@3x-1.png in Resources */,
 				AC39390C26252FD200EB425C /* Chosen-Light-Sunset.png in Resources */,
-				AC3938E026252FD200EB425C /* Inferred-Light.png in Resources */,
+				AC3938E026252FD200EB425C /* Inferred-Light-Sunset.png in Resources */,
 				AC3938F626252FD200EB425C /* Original-Growth@3x.png in Resources */,
 				AC39391726252FD200EB425C /* Chosen-Light-Opposite@2x.png in Resources */,
 				AC3938D426252FD200EB425C /* Chosen-Pastel@2x-1.png in Resources */,
@@ -851,7 +883,7 @@
 				AC39391E26252FD200EB425C /* Inferred-Sunset.png in Resources */,
 				AC3938DE26252FD200EB425C /* Enlightened-Pastel.png in Resources */,
 				AC3938DC26252FD200EB425C /* Chosen-Light-Opposite@3x.png in Resources */,
-				AC3938D126252FD200EB425C /* Inferred-Light@2x.png in Resources */,
+				AC3938D126252FD200EB425C /* Inferred-Light-Sunset@2x.png in Resources */,
 				AC3938ED26252FD200EB425C /* Original-Opposite@3x.png in Resources */,
 				AC39391526252FD200EB425C /* Chosen-Parchment.png in Resources */,
 				AC39391C26252FD200EB425C /* Inferred-Light-Growth.png in Resources */,
@@ -966,6 +998,7 @@
 				AC786EEF2607D4E300AB4470 /* yournalApp.swift in Sources */,
 				AC786F3B2608005300AB4470 /* SettingsView.swift in Sources */,
 				AC787003260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
+				AC39396C2626389300EB425C /* IAPManager.swift in Sources */,
 				AC786F58260801D400AB4470 /* JournalDetailView.swift in Sources */,
 				AC786FCE260911FE00AB4470 /* AdaptsToKeyboard.swift in Sources */,
 				ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */,
@@ -975,6 +1008,7 @@
 				AC7870462612B2B300AB4470 /* DailyView.swift in Sources */,
 				AC3939242625339B00EB425C /* IconNames.swift in Sources */,
 				ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */,
+				AC3939652626371700EB425C /* TipJarView.swift in Sources */,
 				ACFAFB23261BE8A500882BFF /* LowestLowsView.swift in Sources */,
 				AC78704D261576B600AB4470 /* MonthlyView.swift in Sources */,
 				ACB66258262370E60034B5EE /* ThemePickerView.swift in Sources */,
@@ -991,11 +1025,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC39396D2626389300EB425C /* IAPManager.swift in Sources */,
 				ACB6626026237F7B0034B5EE /* ThemeViewModel.swift in Sources */,
 				AC786F52260801A900AB4470 /* JournalEditView.swift in Sources */,
 				AC786FA2260846CD00AB4470 /* MacSidebar.swift in Sources */,
 				ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */,
 				ACB662952623A9C60034B5EE /* Tabbar.swift in Sources */,
+				AC3939662626371700EB425C /* TipJarView.swift in Sources */,
 				AC78704E261576B600AB4470 /* MonthlyView.swift in Sources */,
 				ACB66259262370E60034B5EE /* ThemePickerView.swift in Sources */,
 				AC786FF6260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
@@ -1418,6 +1454,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AC393972262638DD00EB425C /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.10.7;
+			};
+		};
+		AC39398126266F0200EB425C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 		AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/spacenation/swiftui-charts";
@@ -1437,6 +1489,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AC393973262638DD00EB425C /* Purchases */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC393972262638DD00EB425C /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = Purchases;
+		};
+		AC39398226266F0200EB425C /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC39398126266F0200EB425C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		AC4DE38226180FF800DE095F /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AC4DE38126180FF800DE095F /* XCRemoteSwiftPackageReference "swiftui-charts" */;

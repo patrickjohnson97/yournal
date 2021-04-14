@@ -52,7 +52,7 @@ struct NewJournalView: View {
                         }.padding(.bottom)
                         PromptSection(promptViewModel: promptViewModel, prompt: $prompt)
                         ZStack(alignment: .topLeading){
-                            Text(text == "" ? "Today was a good day ..." : text).opacity(text == "" ? 0.25 : 0).font(.system(.body, design: .serif))
+                            Text(text == "" ? "Today was a good day ..." : text).opacity(text == "" ? 0.25 : 0).font(.system(.body, design: .serif)).offset(x:3, y: 8)
                             TextEditor(text: $text).font(.system(.body, design: .serif))
                         }
                         .padding(.top)

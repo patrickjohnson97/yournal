@@ -11,7 +11,7 @@ import Foundation
 
 var themes: [ThemeSelection] = [ThemeSelection(name: "Parchment", displayName: "Parchment", caption:"Pen and paper, baby"),
                                 ThemeSelection(name: "Growth", displayName: "Growth", caption: "Be the best you can be"),
-                                ThemeSelection(name: "Opposites", displayName: "Opposites", caption: "...Polarizing"),
+                                ThemeSelection(name: "Opposite", displayName: "Opposites", caption: "...Polarizing"),
                                 ThemeSelection(name: "Sunset", displayName: "Sunset", caption: "Wow, so pretty!"),
                                 ThemeSelection(name: "Pastel", displayName: "Pastel", caption: "Okay now this one is cute")]
 

@@ -10,7 +10,6 @@ import UIKit
 struct TabbarContents: View {
     @ObservedObject var journalViewModel: JournalViewModel
     @ObservedObject var promptViewModel: PromptViewModel
-    @AppStorage("user.theme") var theme: String = "Parchment"
     @AppStorage("user.tab") var selection: String = "Today"
     var body: some View {
         TabView(selection: $selection) {

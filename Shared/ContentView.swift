@@ -26,6 +26,7 @@ struct ContentView: View {
             Tabbar()
         } else {
             IpadSidebar()
+            
         }
         #elseif os(watchOS)
         Tabbar()

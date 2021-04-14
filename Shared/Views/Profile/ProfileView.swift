@@ -15,7 +15,6 @@ struct ProfileView: View {
     @AppStorage("user.themeChanged") var themeChanged: Bool = false
     @State var showPopup: Bool = false
     var body: some View {
-        NavigationView{
             ZStack{
                 Background()
                 ScrollView{
@@ -110,7 +109,6 @@ struct ProfileView: View {
                     .buttonStyle(PlainButtonStyle())
                 })
             })
-        }
         .toast(isPresenting: $showPopup, duration: 6.0, tapToDismiss: true, alert: {
             AlertToast(displayMode: .hud, type: .complete(getThemeColor(name: "Chosen", theme: theme)), title: "Theme changed!" , subTitle: "Time to give these colors a spin😎")
         }, completion: {_ in

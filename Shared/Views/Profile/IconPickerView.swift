@@ -50,7 +50,7 @@ struct IconPickerView: View {
                 self.iconSettings.iconNames[nameIndex ?? 0]
                 , completionHandler: { error in
                 if error != nil {
-                    print(error)
+                    print(error ?? "error")
                 }
                 self.iconSettings.currentIndex = nameIndex ?? 0
             })

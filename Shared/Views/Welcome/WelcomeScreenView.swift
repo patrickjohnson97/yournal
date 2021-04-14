@@ -29,11 +29,11 @@ struct WelcomeScreenView: View {
                 Spacer()
                 
                 VStack(spacing: 24) {
-                    FeatureCell(image: "doc.append.fill", title: "Capture Moments", subtitle: "Get helpful information to resolve your issue wherever you are.", color: .green)
+                    FeatureCell(image: "doc.append.fill", title: "Capture Moments", subtitle: "Easily record and relive your most treasured memories.", color: .green)
                     
-                    FeatureCell(image: "face.smiling.fill", title: "Analyze Mood", subtitle: "Get help from a real person by phone, chat, and more.", color: .blue)
+                    FeatureCell(image: "face.smiling.fill", title: "Analyze Mood", subtitle: "Track your mood automatically through an Artificial Assistant.", color: .blue)
                     
-                    FeatureCell(image: "calendar", title: "Relive Memories", subtitle: "Find a Genius Bar or Apple Service Provider near you.", color: .red)
+                    FeatureCell(image: "lock.fill", title: "Secure Data", subtitle: "Your data belongs to you - no ifs, ands, or buts.", color: .red)
                 }
                 .padding(.leading)
                 

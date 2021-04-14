@@ -8,22 +8,36 @@
 import SwiftUI
 
 struct IpadSidebar: View {
+    @ObservedObject var promptViewModel = PromptViewModel()
+    @ObservedObject var journalViewModel = JournalViewModel()
+    @AppStorage("user.theme") var currentTheme: String = "Parchment"
+    init(){
+        UITextView.appearance().backgroundColor = .clear
+        UITextView.appearance().showsVerticalScrollIndicator = false
+    }
     var body: some View {
         NavigationView{
-            List {
-//                NavigationLink(destination: TodayView()) {
-//                        Label("Today", systemImage: "doc.append")
-//                }
-                NavigationLink(destination: EmptyView()) {
+            List{
+                NavigationLink(destination: TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)) {
+                        Label("Today", systemImage: "doc.append")
+                }
+                NavigationLink(destination: HistoryView(journalViewModel: journalViewModel)) {
                         Label("History", systemImage: "calendar")
                 }
-//                NavigationLink(destination: ProfileView()) {
-//                        Label("Profile", systemImage: "person")
-//                }
+                NavigationLink(destination: ProfileView(journalViewModel: journalViewModel)) {
+                        Label("Profile", systemImage: "person")
+                }
             }
             .listStyle(SidebarListStyle())
             .navigationTitle("Menu")
+            .onAppear(perform: {
+//                showWelcomeScreen = !UserDefaults.standard.bool(forKey: "userWelcomed")
+                promptViewModel.loadPrompts()
+                journalViewModel.loadAllJournals()
+            })
+            TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
         }
+        .accentColor(getThemeColor(name: "Inferred", theme: currentTheme))
     }
 }
 

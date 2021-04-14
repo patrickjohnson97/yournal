@@ -12,7 +12,6 @@ struct HistoryView: View {
     @ObservedObject var journalViewModel: JournalViewModel
     @State var selectedDate: Date = Calendar.current.startOfDay(for: Date())
     var body: some View {
-        NavigationView{
         ZStack{
             Background()
             VStack{
@@ -30,7 +29,6 @@ struct HistoryView: View {
             }
             
         }.navigationTitle("History")
-        }
         .onAppear(perform: {
             journalViewModel.loadAllJournals()
         })

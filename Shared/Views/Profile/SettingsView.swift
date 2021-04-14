@@ -87,8 +87,8 @@ struct SettingsView: View {
                         
             // 4.
             var dateComponents = DateComponents()
-            dateComponents.hour = 19
-            dateComponents.minute = 50
+            dateComponents.hour = 20
+            dateComponents.minute = 45
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
@@ -104,10 +104,11 @@ struct SettingsView: View {
 
 struct ExtraSettings: View{
     @Environment(\.openURL) var openURL
+    @State var showTipSheet = false
     var body: some View {
         VStack{
             Divider()
-            Button(action: {UIApplication.shared.open(URL(string: "mailto:patrick@patrickjohnson.co")!)}, label: {
+            Button(action: {showTipSheet = true}, label: {
                 HStack{
                     Image(systemName: "gift.fill").foregroundColor(.accentColor)
                     Text("Leave a Tip")
@@ -116,16 +117,19 @@ struct ExtraSettings: View{
                 }
             })
             .buttonStyle(PlainButtonStyle())
-            Divider()
-            Link(destination: URL(string: "https://www.apple.com")!) {
-                HStack{
-                    Image(systemName: "safari.fill").foregroundColor(.accentColor)
-                    Text("App Website")
-                    Spacer()
-                    Image(systemName: "chevron.right").foregroundColor(.gray)
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
+            .sheet(isPresented: $showTipSheet, content: {
+                TipJarView()
+            })
+//            Divider()
+//            Link(destination: URL(string: "https://www.apple.com")!) {
+//                HStack{
+//                    Image(systemName: "safari.fill").foregroundColor(.accentColor)
+//                    Text("App Website")
+//                    Spacer()
+//                    Image(systemName: "chevron.right").foregroundColor(.gray)
+//                }
+//            }
+//            .buttonStyle(PlainButtonStyle())
             Divider()
             Button(action: {UIApplication.shared.open(URL(string: "mailto:patrick@patrickjohnson.co")!)}, label: {
                 HStack{
