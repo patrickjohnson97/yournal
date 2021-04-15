@@ -49,6 +49,9 @@ struct JournalDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("")
         .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading) {
+                    Text("")
+                }
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {deleteEntry()}, label:{
                     Image(systemName: "trash")

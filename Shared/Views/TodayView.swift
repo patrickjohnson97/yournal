@@ -87,6 +87,13 @@ struct JournalListView: View {
     @AppStorage("user.theme") var theme: String = "Parchment"
     var body: some View {
         VStack(alignment: .leading){
+            if journals.isEmpty{
+                HStack{
+                    Spacer()
+                    Text("Nothing to see here... yet").font(.system(.headline, design: .serif)).foregroundColor(Color("Secondary-Text"))
+                    Spacer()
+                }
+            }
             ForEach(journals.indices, id: \.self){ index in
                 NavigationLink(
                     destination: JournalDetailView(journalViewModel: journalViewModel, entry: journals[index]),

@@ -12,7 +12,7 @@ import AlertToast
 struct ProfileView: View {
     @ObservedObject var journalViewModel : JournalViewModel
     @AppStorage("user.theme") var theme: String = "Parchment"
-    @AppStorage("user.themeChanged") var themeChanged: Bool = false
+
     @State var showPopup: Bool = false
     var body: some View {
             ZStack{
@@ -96,9 +96,6 @@ struct ProfileView: View {
                     EmptyView()
                 }
             }
-            .onChange(of: themeChanged, perform: { value in
-                showPopup = true
-            })
             
             .navigationTitle("Profile")
             .toolbar(content: {
@@ -109,13 +106,7 @@ struct ProfileView: View {
                     .buttonStyle(PlainButtonStyle())
                 })
             })
-        .toast(isPresenting: $showPopup, duration: 6.0, tapToDismiss: true, alert: {
-            AlertToast(displayMode: .hud, type: .complete(getThemeColor(name: "Chosen", theme: theme)), title: "Theme changed!" , subTitle: "Time to give these colors a spin😎")
-        }, completion: {_ in
-            DispatchQueue.main.async {
-                showPopup = false
-            }
-        })
+        
     }
 }
 

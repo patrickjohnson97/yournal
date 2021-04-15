@@ -13,7 +13,7 @@ struct Tabbar: View {
     @ObservedObject var promptViewModel = PromptViewModel()
     @ObservedObject var journalViewModel = JournalViewModel()
     @AppStorage("user.theme") var currentTheme: String = "Parchment"
-
+    @AppStorage("user.themeChanged") var themeChanged: Bool = false
     var body: some View {
         VStack{
             ForEach(themes){ theme in
@@ -36,6 +36,13 @@ struct Tabbar: View {
         }, completion: {_ in
             DispatchQueue.main.async {
                 journalViewModel.deleteNotification = false
+            }
+        })
+        .toast(isPresenting: $themeChanged, duration: 6.0, tapToDismiss: true, alert: {
+            AlertToast(displayMode: .hud, type: .systemImage("paintbrush.fill", getThemeColor(name: "Chosen", theme: currentTheme)), title: "Theme changed!" , subTitle: "Time to give these colors a spin😎")
+        }, completion: {_ in
+            DispatchQueue.main.async {
+                themeChanged = false
             }
         })
     }

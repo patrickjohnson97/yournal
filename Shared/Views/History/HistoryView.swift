@@ -15,10 +15,6 @@ struct HistoryView: View {
         ZStack{
             Background()
             VStack{
-//                Picker(selection: $view, label: Text("View"), content: {
-//                    Text("Week").tag("week")
-//                    Text("Month").tag("month")
-//                }).pickerStyle(SegmentedPickerStyle())
                 if(view == "week"){
                     WeekView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
                 } else{
@@ -27,8 +23,8 @@ struct HistoryView: View {
                 Spacer()
                 
             }
-            
-        }.navigationTitle("History")
+        }
+        .navigationTitle("History")
         .onAppear(perform: {
             journalViewModel.loadAllJournals()
         })

@@ -16,20 +16,24 @@ struct TabbarContents: View {
             NavigationView{
                 TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
             }
-                .tabItem {
-                    Label("Today", systemImage: "doc.append")
-                }
-                .tag("Today")
-            HistoryView(journalViewModel: journalViewModel)
-                .tabItem {
-                    Label("History", systemImage: "calendar")
-                }
-                .tag("History")
-            ProfileView(journalViewModel: journalViewModel)
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
-                .tag("Profile")
+            .tabItem {
+                Label("Today", systemImage: "doc.append")
+            }
+            .tag("Today")
+            NavigationView{
+                HistoryView(journalViewModel: journalViewModel)
+            }
+            .tabItem {
+                Label("History", systemImage: "calendar")
+            }
+            .tag("History")
+            NavigationView{
+                ProfileView(journalViewModel: journalViewModel)
+            }
+            .tabItem {
+                Label("Profile", systemImage: "person")
+            }
+            .tag("Profile")
         }
         
     }

@@ -51,7 +51,10 @@ struct MonthlyView: View {
                     .opacity(day.isFuture ? 0.7 : 1)
                 }
             }
-                JournalListView(journals: journalViewModel.entries(at: selectedDate), journalViewModel: journalViewModel)
+                let entries = journalViewModel.entries(at: selectedDate)
+                if !entries.isEmpty{
+                    JournalListView(journals: entries, journalViewModel: journalViewModel)
+                }
             }
             .padding(.horizontal)
         }
