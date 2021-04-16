@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Inferred-Pastel-1.png",
+      "filename" : "Inferred-Light-Pastel.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Inferred-Pastel@2x-1.png",
+      "filename" : "Inferred-Light-Pastel@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Inferred-Pastel@3x-1.png",
+      "filename" : "Inferred-Light-Pastel@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

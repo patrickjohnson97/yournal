@@ -23,55 +23,59 @@ struct NewJournalView: View {
     private let tagger = NLTagger(tagSchemes: [.sentimentScore])
     var body: some View {
         ZStack{
-            Background()
             VStack{
-                HStack{
-                    Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {
-                        Text("Cancel")
-                    })
-                    Spacer()
-                    Button(action: {helpButtonSelected = true}, label: {
-                        Image(systemName: "info.circle")
-                    })
-                    Spacer()
-                    Button(action: {addJournal()}, label: {
-                        Text("Done")
-                    })
-                    .disabled(text == "")
-                }.padding([.top, .horizontal])
-                ScrollView{
-                    VStack{
-                        HStack{
+                VStack{
+                    
+                    HStack{
+                        Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {
+                            Text("Cancel")
+                        })
+                        Spacer()
+                        Button(action: {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil); helpButtonSelected = true}
+                               , label: {
+                                Image(systemName: "info.circle")
+                               })
+                        Spacer()
+                        Button(action: {addJournal()}, label: {
+                            Text("Done")
+                        })
+                        .disabled(text == "")
+                    }
+                    HStack{
+                        Spacer()
+                        ForEach(Emotions.allCases, id: \.self){ emotion in
+                            Button(action: {selectEmotion(emotion: emotion)}, label: {
+                                Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? getThemeColor(name:"Chosen", theme: theme) : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
+                            })
                             Spacer()
-                            ForEach(Emotions.allCases, id: \.self){ emotion in
-                                Button(action: {selectEmotion(emotion: emotion)}, label: {
-                                    Image("\(emotion)-twitter").resizable().aspectRatio(contentMode: .fit).frame(height: 40).clipped().padding(6).overlay(Circle().stroke(lineWidth: 4).foregroundColor(emotionSelected == emotion ? getThemeColor(name:"Chosen", theme: theme) : .accentColor)).saturation(isEmotionSelected(emotion: emotion) ? 1.0 : 0.0)
-                                })
-                                Spacer()
-                            }
-                        }.padding(.bottom)
-                        PromptSection(promptViewModel: promptViewModel, prompt: $prompt)
-                        ZStack(alignment: .topLeading){
-                            Text(text == "" ? "Today was a good day ..." : text).opacity(text == "" ? 0.25 : 0).font(.system(.body, design: .serif)).offset(x:3, y: 8)
-                            TextEditor(text: $text).font(.system(.body, design: .serif))
                         }
-                        .padding(.top)
-                        .fixedSize(horizontal: false, vertical: true)
-                    }.padding()
-                    Spacer()
+                    }.padding(.vertical)
+                    PromptSection(promptViewModel: promptViewModel, prompt: $prompt)
                 }
-            }
+                GeometryReader{ geometry in
+                    ZStack(alignment: .topLeading){
+                        Text(text == "" ? "Today was a good day ..." : text).opacity(text == "" ? 0.25 : 0).font(.system(.body, design: .serif)).offset(x:3, y: 8)
+                        TextEditor(text: $text).font(.system(.body, design: .serif))
+                        
+                    }
+                    .frame(height: (geometry.size.height))
+                    .padding(.vertical, 6)
+                }
+            }.padding()
+            
             if(helpButtonSelected){
                 Rectangle().edgesIgnoringSafeArea(.all).foregroundColor(.black).opacity(0.6)
                 SentimentOnboardingView(isShowing: self.$helpButtonSelected)
             }
-        }.edgesIgnoringSafeArea(.bottom)
+        }
         .accentColor(getThemeColor(name: "Inferred", theme: theme))
         .onAppear(perform: {
             helpButtonSelected = !UserDefaults.standard.bool(forKey: "userOnboardedSentiment")
         })
-            
-            
+        
+        
+        
     }
     
     private func addJournal(){
@@ -135,10 +139,10 @@ struct NewJournalView_Previews: PreviewProvider {
 }
 
 struct RoundedCorner: Shape {
-
+    
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
-
+    
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
@@ -228,14 +232,14 @@ struct SentimentOnboardingView: View {
                     }else if(!acknowledgeSecond){
                         HStack{
                             Text("Once you start writing, I'll put a ") +
-                            Text("circle").bold().foregroundColor(.accentColor) +
-                            Text(" around your predicted emotion. If you disagree, change my mind by selecting a different emotion.")
+                                Text("circle").bold().foregroundColor(.accentColor) +
+                                Text(" around your predicted emotion. If you disagree, change my mind by selecting a different emotion.")
                         }
                     } else if(!acknowledgeThird){
                         HStack{
                             Text("To go back to my selection, just press ") +
                                 Text("your selection").bold().foregroundColor(getThemeColor(name:"Chosen", theme: theme)) +
-                            Text(" again and I will take care of the rest!")
+                                Text(" again and I will take care of the rest!")
                         }
                     }
                 }
@@ -246,11 +250,10 @@ struct SentimentOnboardingView: View {
                 HStack{
                     Spacer()
                     Button(action: {proceed()}, label: {
-                        Text("Continue").font(.headline).foregroundColor(.white)
+                        Text("Continue").font(.headline)
                     })
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 20)
-                    .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.accentColor))
+                    .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
+                    
                     Spacer()
                 }
                 Rectangle().frame(height: 100).hidden()
