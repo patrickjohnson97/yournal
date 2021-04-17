@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MonthlyView: View {
-    @Binding var selectedDate: Date
+    @State var selectedDate: Date? = Calendar.current.startOfDay(for: Date())
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentMonth: Date = Date()
     @AppStorage("user.theme") var theme: String = "Parchment"
@@ -16,7 +16,7 @@ struct MonthlyView: View {
         ScrollView(showsIndicators: false){
             VStack{
             HStack{
-                Button(action: {currentMonth = currentMonth.monthBefore}, label: {
+                Button(action: {currentMonth = currentMonth.monthBefore; selectedDate = nil}, label: {
                     Image(systemName: "chevron.backward.2")
                 })
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
@@ -26,7 +26,7 @@ struct MonthlyView: View {
                 let yearInt = Calendar.current.component(.year, from: currentMonth)
                 Text("\(monthStr) \(String(yearInt))").bold()
                 Spacer()
-                Button(action: {currentMonth = currentMonth.monthAfter}, label: {
+                Button(action: {currentMonth = currentMonth.monthAfter; selectedDate = nil}, label: {
                     Image(systemName: "chevron.forward.2")
                 })
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
@@ -51,9 +51,9 @@ struct MonthlyView: View {
                     .opacity(day.isFuture ? 0.7 : 1)
                 }
             }
-                let entries = journalViewModel.entries(at: selectedDate)
+                let entries = journalViewModel.monthEntries(at: selectedDate ?? currentMonth)
                 if !entries.isEmpty{
-                    JournalListView(journals: entries, journalViewModel: journalViewModel)
+                    TimelineView(journals: entries, selectedDate: $selectedDate, journalViewModel: journalViewModel)
                 }
             }
             .padding(.horizontal)
@@ -100,7 +100,7 @@ struct MonthlyView: View {
 
 struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {
-        MonthlyView(selectedDate: .constant(Date()), journalViewModel: JournalViewModel())
+        MonthlyView(journalViewModel: JournalViewModel())
     }
 }
 

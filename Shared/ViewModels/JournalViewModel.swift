@@ -106,6 +106,16 @@ class JournalViewModel: ObservableObject{
         return journals.filter({ $0.createdAt! <  dateTo! && $0.createdAt! >= dateFrom})
     }
     
+    func monthEntries(at day: Date) -> [JournalEntry] {
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        // Get today's beginning & end
+        let dateFrom = calendar.date(from: calendar.dateComponents([.year, .month], from: day))!
+        let dateTo = dateFrom.monthAfter
+        return journals.filter({ $0.createdAt! <  dateTo && $0.createdAt! >= dateFrom})
+    }
+    
     // returns the items at a location to drive listing items in each section
     //        func items(at location: Location) -> [ShoppingItem] {
     //            return items.filter({ $0.location! == location }).sorted(by: { $0.name! < $1.name! })

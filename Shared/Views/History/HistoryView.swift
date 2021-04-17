@@ -10,16 +10,15 @@ import SwiftUI
 struct HistoryView: View {
     @State var view: String = "month"
     @ObservedObject var journalViewModel: JournalViewModel
-    @State var selectedDate: Date = Calendar.current.startOfDay(for: Date())
     var body: some View {
         ZStack{
             Background()
             VStack{
-                if(view == "week"){
-                    WeekView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
-                } else{
-                    MonthlyView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
-                }
+//                if(view == "week"){
+//                    WeekView(selectedDate: $selectedDate, journalViewModel: journalViewModel)
+//                } else{
+                    MonthlyView(journalViewModel: journalViewModel)
+//                }
                 Spacer()
                 
             }

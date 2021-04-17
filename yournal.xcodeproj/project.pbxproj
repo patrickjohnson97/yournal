@@ -276,6 +276,8 @@
 		ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACB662A02623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = ACB662BD2623E2050034B5EE /* AlertToast */; };
+		ACF5C747262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
+		ACF5C748262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
 		ACFAFB15261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB1B261A6B7D00882BFF /* Emotions.swift */; };
@@ -471,6 +473,7 @@
 		ACB66273262389710034B5EE /* TabbarContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarContents.swift; sourceTree = "<group>"; };
 		ACB6628D26239CBC0034B5EE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTabbar.swift; sourceTree = "<group>"; };
+		ACF5C746262A893600005D13 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		ACFAFB14261A69A400882BFF /* HighestHighsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighestHighsView.swift; sourceTree = "<group>"; };
 		ACFAFB1B261A6B7D00882BFF /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowestLowsView.swift; sourceTree = "<group>"; };
@@ -818,6 +821,7 @@
 				AC78704C261576B500AB4470 /* MonthlyView.swift */,
 				AC78703E2612B2A400AB4470 /* WeekView.swift */,
 				AC7870452612B2B300AB4470 /* DailyView.swift */,
+				ACF5C746262A893600005D13 /* TimelineView.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -1223,6 +1227,7 @@
 				ACB6628E26239CBC0034B5EE /* Theme.swift in Sources */,
 				AC787016260A7F4200AB4470 /* Prompt+Extension.swift in Sources */,
 				AC786FC726090A2700AB4470 /* TextEntryView.swift in Sources */,
+				ACF5C747262A893600005D13 /* TimelineView.swift in Sources */,
 				AC786EF12607D4E300AB4470 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1246,6 +1251,7 @@
 				AC787004260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
 				AC786F3C2608005300AB4470 /* SettingsView.swift in Sources */,
 				AC786EF02607D4E300AB4470 /* yournalApp.swift in Sources */,
+				ACF5C748262A893600005D13 /* TimelineView.swift in Sources */,
 				AC786F432608006400AB4470 /* TodayView.swift in Sources */,
 				AC786F602608021900AB4470 /* JournalQuickView.swift in Sources */,
 				AC1A4A122622714C00DBAC4D /* ThemeUtilities.swift in Sources */,
@@ -1428,7 +1434,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yournal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QQALW399CP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1454,7 +1460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yournal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QQALW399CP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;

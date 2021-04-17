@@ -66,7 +66,7 @@ struct NewJournalView: View {
             
             if(helpButtonSelected){
                 Rectangle().edgesIgnoringSafeArea(.all).foregroundColor(.black).opacity(0.6)
-                SentimentOnboardingView(isShowing: self.$helpButtonSelected)
+                SentimentOnboardingView(isShowing: self.$helpButtonSelected).edgesIgnoringSafeArea(.bottom)
             }
         }
         .accentColor(getThemeColor(name: "Inferred", theme: theme))
