@@ -45,8 +45,6 @@ struct TimelineView: View {
                 }.padding()
             }
             .onChange(of: selectedDate, perform: { value in
-                print("SELECTED DATE")
-                print(value)
                 if value != nil{
                     withAnimation {
                         proxy.scrollTo(value, anchor: .top)
@@ -61,17 +59,11 @@ struct TimelineView: View {
                     }
                 }
             })
-            
-            
         }
         .onChange(of: currentMonth, perform: { value in
-            print("SELECTED DATE")
-            print(value)
-            
-                DispatchQueue.main.async {
-                    journals = journalViewModel.monthEntries(at: currentMonth)
-                    print(journals)
-                }
+            DispatchQueue.main.async {
+                journals = journalViewModel.monthEntries(at: currentMonth)
+            }
         })
     }
     func getJournalDates() -> [Date]{
