@@ -23,6 +23,7 @@ struct NewJournalView: View {
     private let tagger = NLTagger(tagSchemes: [.sentimentScore])
     var body: some View {
         ZStack{
+            Background()
             VStack{
                 VStack{
                     

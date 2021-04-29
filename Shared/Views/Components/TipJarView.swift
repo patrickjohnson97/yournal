@@ -95,6 +95,7 @@ struct TipButton: View {
             }
             
         })
+        .buttonStyle(PlainButtonStyle())
         .padding()
         .background(RoundedRectangle(cornerRadius: 8).foregroundColor(getThemeColor(name: "Card", theme: theme)))
     }

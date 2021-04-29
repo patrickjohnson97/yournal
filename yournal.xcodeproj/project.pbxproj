@@ -278,6 +278,21 @@
 		ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = ACB662BD2623E2050034B5EE /* AlertToast */; };
 		ACF5C747262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
 		ACF5C748262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
+		ACF5C758262CCCD700005D13 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5C757262CCCD700005D13 /* WidgetKit.framework */; };
+		ACF5C75A262CCCD700005D13 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5C759262CCCD700005D13 /* SwiftUI.framework */; };
+		ACF5C75D262CCCD700005D13 /* StreakWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C75C262CCCD700005D13 /* StreakWidgets.swift */; };
+		ACF5C760262CCCD900005D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5C75F262CCCD900005D13 /* Assets.xcassets */; };
+		ACF5C762262CCCD900005D13 /* StreakWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C75E262CCCD700005D13 /* StreakWidgets.intentdefinition */; };
+		ACF5C763262CCCD900005D13 /* StreakWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C75E262CCCD700005D13 /* StreakWidgets.intentdefinition */; };
+		ACF5C766262CCCD900005D13 /* StreakWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ACF5C756262CCCD700005D13 /* StreakWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACF5C773262CD17D00005D13 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786FED260A533900AB4470 /* JournalViewModel.swift */; };
+		ACF5C778262CD1B400005D13 /* yournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC786EC12607D4E300AB4470 /* yournal.xcdatamodeld */; };
+		ACF5C782262CD49C00005D13 /* ContributionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DE36E2617D07B00DE095F /* ContributionChart.swift */; };
+		ACF5C787262CD59D00005D13 /* ThemeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A4A102622714C00DBAC4D /* ThemeUtilities.swift */; };
+		ACF5C78C262CD5B600005D13 /* JournalEntry+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786FF4260A55C500AB4470 /* JournalEntry+Extension.swift */; };
+		ACF5C791262CD5C100005D13 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC786EC52607D4E300AB4470 /* Persistence.swift */; };
+		ACF5C796262CD5D100005D13 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC787002260A68A100AB4470 /* NotificationName+Extension.swift */; };
+		ACF5C79B262CD5DD00005D13 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7870532616B28300AB4470 /* Date+Extensions.swift */; };
 		ACFAFB15261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB16261A69A400882BFF /* HighestHighsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB14261A69A400882BFF /* HighestHighsView.swift */; };
 		ACFAFB1C261A6B7D00882BFF /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFAFB1B261A6B7D00882BFF /* Emotions.swift */; };
@@ -302,6 +317,13 @@
 			remoteGlobalIDString = AC786ED22607D4E300AB4470;
 			remoteInfo = "yournal (macOS)";
 		};
+		ACF5C764262CCCD900005D13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC786EBC2607D4E200AB4470 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACF5C755262CCCD700005D13;
+			remoteInfo = StreakWidgetsExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -314,6 +336,17 @@
 				AC39398426266F0200EB425C /* ConfettiSwiftUI in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACF5C767262CCCD900005D13 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ACF5C766262CCCD900005D13 /* StreakWidgetsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -474,6 +507,14 @@
 		ACB6628D26239CBC0034B5EE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTabbar.swift; sourceTree = "<group>"; };
 		ACF5C746262A893600005D13 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		ACF5C756262CCCD700005D13 /* StreakWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StreakWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF5C757262CCCD700005D13 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		ACF5C759262CCCD700005D13 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		ACF5C75C262CCCD700005D13 /* StreakWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgets.swift; sourceTree = "<group>"; };
+		ACF5C75E262CCCD700005D13 /* StreakWidgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = StreakWidgets.intentdefinition; sourceTree = "<group>"; };
+		ACF5C75F262CCCD900005D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACF5C761262CCCD900005D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF5C77D262CD26C00005D13 /* StreakWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StreakWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		ACFAFB14261A69A400882BFF /* HighestHighsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighestHighsView.swift; sourceTree = "<group>"; };
 		ACFAFB1B261A6B7D00882BFF /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		ACFAFB22261BE8A500882BFF /* LowestLowsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowestLowsView.swift; sourceTree = "<group>"; };
@@ -511,6 +552,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACF5C753262CCCD700005D13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACF5C75A262CCCD700005D13 /* SwiftUI.framework in Frameworks */,
+				ACF5C758262CCCD700005D13 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,12 +714,14 @@
 		AC786EBB2607D4E200AB4470 = {
 			isa = PBXGroup;
 			children = (
+				ACF5C77D262CD26C00005D13 /* StreakWidgetsExtension.entitlements */,
 				AC786F972608434A00AB4470 /* yournal.entitlements */,
 				AC786EC02607D4E300AB4470 /* Shared */,
 				AC786ECD2607D4E300AB4470 /* iOS */,
 				AC786ED42607D4E300AB4470 /* macOS */,
 				AC786EDE2607D4E300AB4470 /* Tests iOS */,
 				AC786EE92607D4E300AB4470 /* Tests macOS */,
+				ACF5C75B262CCCD700005D13 /* StreakWidgets */,
 				AC786ECC2607D4E300AB4470 /* Products */,
 				ACFAFB29261D41BB00882BFF /* Frameworks */,
 				AC3F36A22629229B008944A7 /* Recovered References */,
@@ -700,6 +752,7 @@
 				AC786ED32607D4E300AB4470 /* yournal.app */,
 				AC786EDB2607D4E300AB4470 /* Tests iOS.xctest */,
 				AC786EE62607D4E300AB4470 /* Tests macOS.xctest */,
+				ACF5C756262CCCD700005D13 /* StreakWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -826,10 +879,23 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		ACF5C75B262CCCD700005D13 /* StreakWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				ACF5C75C262CCCD700005D13 /* StreakWidgets.swift */,
+				ACF5C75E262CCCD700005D13 /* StreakWidgets.intentdefinition */,
+				ACF5C75F262CCCD900005D13 /* Assets.xcassets */,
+				ACF5C761262CCCD900005D13 /* Info.plist */,
+			);
+			path = StreakWidgets;
+			sourceTree = "<group>";
+		};
 		ACFAFB29261D41BB00882BFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ACFAFB2A261D41BB00882BFF /* CloudKit.framework */,
+				ACF5C757262CCCD700005D13 /* WidgetKit.framework */,
+				ACF5C759262CCCD700005D13 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -845,10 +911,12 @@
 				AC786EC82607D4E300AB4470 /* Frameworks */,
 				AC786EC92607D4E300AB4470 /* Resources */,
 				AC39398526266F0200EB425C /* Embed Frameworks */,
+				ACF5C767262CCCD900005D13 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				ACF5C765262CCCD900005D13 /* PBXTargetDependency */,
 			);
 			name = "yournal (iOS)";
 			packageProductDependencies = (
@@ -914,6 +982,23 @@
 			productReference = AC786EE62607D4E300AB4470 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		ACF5C755262CCCD700005D13 /* StreakWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACF5C76A262CCCD900005D13 /* Build configuration list for PBXNativeTarget "StreakWidgetsExtension" */;
+			buildPhases = (
+				ACF5C752262CCCD700005D13 /* Sources */,
+				ACF5C753262CCCD700005D13 /* Frameworks */,
+				ACF5C754262CCCD700005D13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreakWidgetsExtension;
+			productName = StreakWidgetsExtension;
+			productReference = ACF5C756262CCCD700005D13 /* StreakWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -936,6 +1021,9 @@
 					AC786EE52607D4E300AB4470 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = AC786ED22607D4E300AB4470;
+					};
+					ACF5C755262CCCD700005D13 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -962,6 +1050,7 @@
 				AC786ED22607D4E300AB4470 /* yournal (macOS) */,
 				AC786EDA2607D4E300AB4470 /* Tests iOS */,
 				AC786EE52607D4E300AB4470 /* Tests macOS */,
+				ACF5C755262CCCD700005D13 /* StreakWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1177,6 +1266,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACF5C754262CCCD700005D13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACF5C760262CCCD900005D13 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1206,6 +1303,7 @@
 				AC786FA1260846CD00AB4470 /* MacSidebar.swift in Sources */,
 				AC786F422608006400AB4470 /* TodayView.swift in Sources */,
 				AC786EEF2607D4E300AB4470 /* yournalApp.swift in Sources */,
+				ACF5C763262CCCD900005D13 /* StreakWidgets.intentdefinition in Sources */,
 				AC786F3B2608005300AB4470 /* SettingsView.swift in Sources */,
 				AC787003260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
 				AC39396C2626389300EB425C /* IAPManager.swift in Sources */,
@@ -1298,6 +1396,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACF5C752262CCCD700005D13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACF5C773262CD17D00005D13 /* JournalViewModel.swift in Sources */,
+				ACF5C791262CD5C100005D13 /* Persistence.swift in Sources */,
+				ACF5C782262CD49C00005D13 /* ContributionChart.swift in Sources */,
+				ACF5C79B262CD5DD00005D13 /* Date+Extensions.swift in Sources */,
+				ACF5C78C262CD5B600005D13 /* JournalEntry+Extension.swift in Sources */,
+				ACF5C787262CD59D00005D13 /* ThemeUtilities.swift in Sources */,
+				ACF5C796262CD5D100005D13 /* NotificationName+Extension.swift in Sources */,
+				ACF5C762262CCCD900005D13 /* StreakWidgets.intentdefinition in Sources */,
+				ACF5C778262CD1B400005D13 /* yournal.xcdatamodeld in Sources */,
+				ACF5C75D262CCCD700005D13 /* StreakWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1310,6 +1425,11 @@
 			isa = PBXTargetDependency;
 			target = AC786ED22607D4E300AB4470 /* yournal (macOS) */;
 			targetProxy = AC786EE72607D4E300AB4470 /* PBXContainerItemProxy */;
+		};
+		ACF5C765262CCCD900005D13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACF5C755262CCCD700005D13 /* StreakWidgetsExtension */;
+			targetProxy = ACF5C764262CCCD900005D13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1430,11 +1550,12 @@
 		AC786EFA2607D4E300AB4470 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yournal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QQALW399CP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1443,24 +1564,26 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = patrickjohnson.yournal;
 				PRODUCT_NAME = yournal;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AC786EFB2607D4E300AB4470 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yournal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QQALW399CP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1469,13 +1592,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = patrickjohnson.yournal;
 				PRODUCT_NAME = yournal;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1619,6 +1743,59 @@
 			};
 			name = Release;
 		};
+		ACF5C768262CCCD900005D13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StreakWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = QQALW399CP;
+				INFOPLIST_FILE = StreakWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = patrickjohnson.yournal.StreakWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ACF5C769262CCCD900005D13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StreakWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = QQALW399CP;
+				INFOPLIST_FILE = StreakWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = patrickjohnson.yournal.StreakWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1663,6 +1840,15 @@
 			buildConfigurations = (
 				AC786F032607D4E300AB4470 /* Debug */,
 				AC786F042607D4E300AB4470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACF5C76A262CCCD900005D13 /* Build configuration list for PBXNativeTarget "StreakWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACF5C768262CCCD900005D13 /* Debug */,
+				ACF5C769262CCCD900005D13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

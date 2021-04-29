@@ -21,7 +21,7 @@ struct SettingsView: View {
                             Text("Prompt List")
                             Spacer()
                             Image(systemName: "chevron.right").foregroundColor(.gray)
-                        }
+                        }.contentShape(Rectangle())
                     })
                     .buttonStyle(PlainButtonStyle())
                     Divider()
@@ -31,7 +31,7 @@ struct SettingsView: View {
                             Text("Theme")
                             Spacer()
                             Image(systemName: "chevron.right").foregroundColor(.gray)
-                        }
+                        } .contentShape(Rectangle())
                     })
                     .buttonStyle(PlainButtonStyle())
                     Divider()
@@ -42,6 +42,7 @@ struct SettingsView: View {
                             Spacer()
                             Image(systemName: "chevron.right").foregroundColor(.gray)
                         }
+                        .contentShape(Rectangle())
                     })
                     .buttonStyle(PlainButtonStyle())
                     Divider()
@@ -54,9 +55,9 @@ struct SettingsView: View {
                             
                         })
                         .onReceive([self.isNotificationsOn].publisher.first()) { (value) in
-                                print("New value is: \(value)")
-                                toggleNotificationSettings()
-                           }
+                            print("New value is: \(value)")
+                            toggleNotificationSettings()
+                        }
                         .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     ExtraSettings()
@@ -84,12 +85,12 @@ struct SettingsView: View {
             content.title = "Do it for the streak 😤"
             content.body = "It's time for your daily journal📔"
             content.sound = UNNotificationSound.default
-                        
+            
             // 4.
             var dateComponents = DateComponents()
             dateComponents.hour = 20
             dateComponents.minute = 45
-
+            
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
             
@@ -115,29 +116,31 @@ struct ExtraSettings: View{
                     Spacer()
                     Image(systemName: "chevron.right").foregroundColor(.gray)
                 }
+                .contentShape(Rectangle())
             })
             .buttonStyle(PlainButtonStyle())
             .sheet(isPresented: $showTipSheet, content: {
                 TipJarView()
             })
-//            Divider()
-//            Link(destination: URL(string: "https://www.apple.com")!) {
-//                HStack{
-//                    Image(systemName: "safari.fill").foregroundColor(.accentColor)
-//                    Text("App Website")
-//                    Spacer()
-//                    Image(systemName: "chevron.right").foregroundColor(.gray)
-//                }
-//            }
-//            .buttonStyle(PlainButtonStyle())
+            //            Divider()
+            //            Link(destination: URL(string: "https://www.apple.com")!) {
+            //                HStack{
+            //                    Image(systemName: "safari.fill").foregroundColor(.accentColor)
+            //                    Text("App Website")
+            //                    Spacer()
+            //                    Image(systemName: "chevron.right").foregroundColor(.gray)
+            //                }
+            //            }
+            //            .buttonStyle(PlainButtonStyle())
             Divider()
-            Button(action: {UIApplication.shared.open(URL(string: "mailto:patrick@patrickjohnson.co")!)}, label: {
+            Button(action: {UIApplication.shared.open(URL(string: "mailto:support@yournal.io")!)}, label: {
                 HStack{
                     Image(systemName: "envelope.fill").foregroundColor(.accentColor)
                     Text("Contact Support")
                     Spacer()
                     Image(systemName: "chevron.right").foregroundColor(.gray)
                 }
+                .contentShape(Rectangle())
             })
             .buttonStyle(PlainButtonStyle())
             
