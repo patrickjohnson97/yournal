@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MonthlyView: View {
     @State var selectedDate: Date? = Calendar.current.startOfDay(for: Date())
+    @State var timelineEntries = [JournalEntry]()
     @ObservedObject var journalViewModel: JournalViewModel
     @State var currentMonth: Date = Date()
     @AppStorage("user.theme") var theme: String = "Parchment"
@@ -31,7 +32,7 @@ struct MonthlyView: View {
                         }, label: {
                     Image(systemName: "chevron.forward.2")
                 })
-                .disabled(Date().month == currentMonth.month && Date().year == currentMonth.year)
+//                .disabled(Date().month == currentMonth.month && Date().year == currentMonth.year)
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
             }
             let days = getAllDays()
@@ -54,13 +55,12 @@ struct MonthlyView: View {
                     .opacity(day.isFuture ? 0.7 : 1)
                 }
             }
-                let entries = journalViewModel.monthEntries(at: selectedDate ?? currentMonth)
-                if !entries.isEmpty{
-                    TimelineView(journals: entries, selectedDate: $selectedDate, journalViewModel: journalViewModel)
-                }
+                    TimelineView(selectedDate: $selectedDate, currentMonth: $currentMonth, journalViewModel: journalViewModel)
+                
             }
             .padding(.horizontal)
         }
+        
     }
     
     func isDateSelectable(day: Date) -> Bool{
@@ -68,12 +68,14 @@ struct MonthlyView: View {
     }
     
     func advanceMonth(){
-        DispatchQueue.main.async {
+        DispatchQueue.main.async{
             currentMonth = currentMonth.monthAfter;
+            
         }
         DispatchQueue.main.async {
             selectedDate = nil
         }
+        
     }
     
     func getAllDays() -> [Date]

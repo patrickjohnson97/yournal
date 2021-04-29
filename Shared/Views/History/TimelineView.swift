@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct TimelineView: View {
-    var journals: [JournalEntry]
+    @State var journals: [JournalEntry] = []
     @Binding var selectedDate: Date?
+    @Binding var currentMonth: Date
     @ObservedObject var journalViewModel: JournalViewModel
+    init(selectedDate: Binding<Date?>, currentMonth: Binding<Date>, journalViewModel: JournalViewModel){
+        self._selectedDate = selectedDate
+        self._currentMonth = currentMonth
+        self.journalViewModel = journalViewModel
+        self.journals = journalViewModel.monthEntries(at: Date())
+    }
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView{
@@ -36,7 +43,10 @@ struct TimelineView: View {
                         .padding(.top, 2)
                     }
                 }.padding()
-            }.onChange(of: selectedDate, perform: { value in
+            }
+            .onChange(of: selectedDate, perform: { value in
+                print("SELECTED DATE")
+                print(value)
                 if value != nil{
                     withAnimation {
                         proxy.scrollTo(value, anchor: .top)
@@ -44,13 +54,25 @@ struct TimelineView: View {
                 }
             })
             .onAppear(perform: {
+                journals = journalViewModel.monthEntries(at: Date())
                 if selectedDate != nil{
                     withAnimation {
                         proxy.scrollTo(selectedDate, anchor: .top)
                     }
                 }
             })
+            
+            
         }
+        .onChange(of: currentMonth, perform: { value in
+            print("SELECTED DATE")
+            print(value)
+            
+                DispatchQueue.main.async {
+                    journals = journalViewModel.monthEntries(at: currentMonth)
+                    print(journals)
+                }
+        })
     }
     func getJournalDates() -> [Date]{
         var dates = [Date]()
@@ -60,12 +82,12 @@ struct TimelineView: View {
                 dates.append(date!)
             }
         })
-        return dates
+        return dates.sorted(by: {$0<$1})
     }
 }
 
 struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineView(journals: [], selectedDate: .constant(nil), journalViewModel: JournalViewModel())
+        TimelineView(selectedDate: .constant(nil), currentMonth: .constant(Date()), journalViewModel: JournalViewModel())
     }
 }
