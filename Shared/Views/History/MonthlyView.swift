@@ -26,9 +26,12 @@ struct MonthlyView: View {
                 let yearInt = Calendar.current.component(.year, from: currentMonth)
                 Text("\(monthStr) \(String(yearInt))").bold()
                 Spacer()
-                Button(action: {currentMonth = currentMonth.monthAfter; selectedDate = nil}, label: {
+                Button(action: {
+                        advanceMonth()
+                        }, label: {
                     Image(systemName: "chevron.forward.2")
                 })
+                .disabled(Date().month == currentMonth.month && Date().year == currentMonth.year)
                 .buttonStyle(GenericButtonStyle(foregroundColor: .accentColor, backgroundColor: Color.accentColor.opacity(0.14), pressedColor: Color.accentColor.opacity(0.2), internalPadding: 10))
             }
             let days = getAllDays()
@@ -62,6 +65,15 @@ struct MonthlyView: View {
     
     func isDateSelectable(day: Date) -> Bool{
         return (Calendar.current.component(.month, from: day) == Calendar.current.component(.month, from: currentMonth) && !day.isFuture && !journalViewModel.entries(at: day).isEmpty)
+    }
+    
+    func advanceMonth(){
+        DispatchQueue.main.async {
+            currentMonth = currentMonth.monthAfter;
+        }
+        DispatchQueue.main.async {
+            selectedDate = nil
+        }
     }
     
     func getAllDays() -> [Date]

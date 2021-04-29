@@ -21,6 +21,14 @@ extension Date {
         return (Calendar.current.compare(Date(), to: self, toGranularity: .nanosecond) == .orderedAscending)
     }
     
+    var year: Int {
+        return Calendar.current.component(.year, from: self)
+    }
+    
+    var month: Int {
+        return Calendar.current.component(.month, from: self)
+    }
+    
     var monthAfter: Date {
         return Calendar.current.date(byAdding: .month, value: 1, to: self)!
     }

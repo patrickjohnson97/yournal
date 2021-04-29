@@ -89,9 +89,10 @@ struct TipButton: View {
                 }
                 Spacer()
                 Text(package.localizedPriceString)
-                    .foregroundColor(getThemeColor(name: "Background", theme: theme)).bold()
+                    .foregroundColor(.accentColor).bold()
                     .padding(7)
-                    .background(RoundedRectangle(cornerRadius: 8).foregroundColor(getThemeColor(name: "Chosen", theme: theme)))
+                    .background(RoundedRectangle(cornerRadius: 8).foregroundColor(Color.accentColor.opacity(0.14)))
+                    
             }
             
         })

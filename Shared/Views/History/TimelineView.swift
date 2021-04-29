@@ -55,7 +55,7 @@ struct TimelineView: View {
     func getJournalDates() -> [Date]{
         var dates = [Date]()
         journals.forEach({ journal in
-            let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: journal.createdAt!))
+            let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: journal.createdAt ?? Date()))
             if date != nil && !dates.contains(date!){
                 dates.append(date!)
             }
