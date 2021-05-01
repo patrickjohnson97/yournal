@@ -52,7 +52,7 @@ struct TimelineView: View {
                 }
             })
             .onAppear(perform: {
-                journals = journalViewModel.monthEntries(at: Date())
+                journals = journalViewModel.monthEntries(at: selectedDate ?? currentMonth)
                 if selectedDate != nil{
                     withAnimation {
                         proxy.scrollTo(selectedDate, anchor: .top)

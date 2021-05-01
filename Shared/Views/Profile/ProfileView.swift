@@ -17,6 +17,7 @@ struct ProfileView: View {
     var body: some View {
             ZStack{
                 Background()
+                GeometryReader{ geometry in
                 ScrollView{
                     VStack{
                         Divider()
@@ -25,8 +26,10 @@ struct ProfileView: View {
                                 .font(.title2).bold()
                             Spacer()
                         }
-                        ContributionChart(journalViewModel: journalViewModel)
-                        .padding()
+//                        ContributionChart(journalViewModel: journalViewModel)
+                        StreaksView(numRows: Int(geometry.size.width)/23, journalViewModel: journalViewModel)
+                            .frame(height: geometry.size.height > geometry.size.width ? geometry.size.height/4 : geometry.size.height/2)
+//                        .padding()
                         .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
                         Divider()
                         HStack{
@@ -94,6 +97,7 @@ struct ProfileView: View {
                         .hidden()
                     }.padding(.horizontal)
                     EmptyView()
+                }
                 }
             }
             

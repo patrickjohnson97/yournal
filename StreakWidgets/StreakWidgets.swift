@@ -56,14 +56,14 @@ struct StreakWidgetsEntryView : View {
     
     var body: some View {
         HStack(spacing: 4){
-//            ForEach((0...16).reversed(), id: \.self){ week in
-//                VStack(spacing: 4){
-//                    ForEach((0...6).reversed(), id: \.self){ dayOfWeek in
-//                        let daysAgo = -(week*7+dayOfWeek)+(7-Calendar.current.component(.weekday, from: Date()))
-//                        DailyStreakView(allEntries: entry.entries, theme: entry.theme, daysAgo: daysAgo)
-//                    }
-//                }
-//            }
+            ForEach((0...16).reversed(), id: \.self){ week in
+                VStack(spacing: 4){
+                    ForEach((0...6).reversed(), id: \.self){ dayOfWeek in
+                        let daysAgo = -(week*7+dayOfWeek)+(7-Calendar.current.component(.weekday, from: Date()))
+                        DailyStreakView(allEntries: entry.entries, theme: entry.theme, daysAgo: daysAgo)
+                    }
+                }
+            }
         }.padding()
     }
 }

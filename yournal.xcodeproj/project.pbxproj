@@ -276,6 +276,8 @@
 		ACB6629F2623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACB662A02623A9EB0034B5EE /* ThemeTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */; };
 		ACB662BE2623E2050034B5EE /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = ACB662BD2623E2050034B5EE /* AlertToast */; };
+		ACCD5BF8263B6220009E6467 /* StreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD5BF7263B6220009E6467 /* StreaksView.swift */; };
+		ACCD5BF9263B6220009E6467 /* StreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD5BF7263B6220009E6467 /* StreaksView.swift */; };
 		ACF5C747262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
 		ACF5C748262A893600005D13 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5C746262A893600005D13 /* TimelineView.swift */; };
 		ACF5C758262CCCD700005D13 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5C757262CCCD700005D13 /* WidgetKit.framework */; };
@@ -506,6 +508,7 @@
 		ACB66273262389710034B5EE /* TabbarContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarContents.swift; sourceTree = "<group>"; };
 		ACB6628D26239CBC0034B5EE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ACB6629E2623A9EB0034B5EE /* ThemeTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTabbar.swift; sourceTree = "<group>"; };
+		ACCD5BF7263B6220009E6467 /* StreaksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksView.swift; sourceTree = "<group>"; };
 		ACF5C746262A893600005D13 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		ACF5C756262CCCD700005D13 /* StreakWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StreakWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5C757262CCCD700005D13 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -843,6 +846,7 @@
 				AC786FC626090A2700AB4470 /* TextEntryView.swift */,
 				AC786FCD260911FE00AB4470 /* AdaptsToKeyboard.swift */,
 				AC3939642626371700EB425C /* TipJarView.swift */,
+				ACCD5BF7263B6220009E6467 /* StreaksView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1296,6 +1300,7 @@
 				AC7870342612AF7900AB4470 /* HistoryView.swift in Sources */,
 				AC787021260A819000AB4470 /* PromptViewModel.swift in Sources */,
 				AC7870542616B28400AB4470 /* Date+Extensions.swift in Sources */,
+				ACCD5BF8263B6220009E6467 /* StreaksView.swift in Sources */,
 				AC786F4A2608017E00AB4470 /* NewJournalView.swift in Sources */,
 				AC786FC0260905C100AB4470 /* Background.swift in Sources */,
 				AC39392A2625356500EB425C /* IconPickerView.swift in Sources */,
@@ -1346,6 +1351,7 @@
 				AC786FF6260A55C500AB4470 /* JournalEntry+Extension.swift in Sources */,
 				AC7870472612B2B300AB4470 /* DailyView.swift in Sources */,
 				AC78702D2611799400AB4470 /* InitializePrompts.swift in Sources */,
+				ACCD5BF9263B6220009E6467 /* StreaksView.swift in Sources */,
 				AC787004260A68A100AB4470 /* NotificationName+Extension.swift in Sources */,
 				AC786F3C2608005300AB4470 /* SettingsView.swift in Sources */,
 				AC786EF02607D4E300AB4470 /* yournalApp.swift in Sources */,

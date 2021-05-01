@@ -9,6 +9,8 @@ import SwiftUI
 import UserNotifications
 struct SettingsView: View {
     @State var isNotificationsOn: Bool = UserDefaults.standard.bool(forKey: "user.dailynotifications")
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         ZStack{
             Background()
@@ -70,8 +72,10 @@ struct SettingsView: View {
     
     func toggleNotificationSettings(){
         if(isNotificationsOn){
+            
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UserDefaults.standard.setValue(true, forKey: "user.dailynotifications")
+            
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])  {
                 success, error in
                 if success {
