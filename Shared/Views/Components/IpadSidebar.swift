@@ -21,7 +21,7 @@ struct IpadSidebar: View {
                 NavigationLink(destination: TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)) {
                         Label("Today", systemImage: "doc.append")
                 }
-                NavigationLink(destination: HistoryView(journalViewModel: journalViewModel)) {
+                NavigationLink(destination: HistoryView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)) {
                         Label("History", systemImage: "calendar")
                 }
                 NavigationLink(destination: ProfileView(journalViewModel: journalViewModel)) {

@@ -13,18 +13,18 @@ struct TabbarContents: View {
     @AppStorage("user.tab") var selection: String = "Today"
     var body: some View {
         TabView(selection: $selection) {
+//            NavigationView{
+//                TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
+//            }
+//            .tabItem {
+//                Label("Today", systemImage: "doc.append")
+//            }
+//            .tag("Today")
             NavigationView{
-                TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
+                HistoryView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
             }
             .tabItem {
-                Label("Today", systemImage: "doc.append")
-            }
-            .tag("Today")
-            NavigationView{
-                HistoryView(journalViewModel: journalViewModel)
-            }
-            .tabItem {
-                Label("History", systemImage: "calendar")
+                Label("Home", systemImage: "doc.append")
             }
             .tag("History")
             NavigationView{

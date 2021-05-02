@@ -12,6 +12,7 @@ struct TimelineView: View {
     @Binding var selectedDate: Date?
     @Binding var currentMonth: Date
     @ObservedObject var journalViewModel: JournalViewModel
+    @AppStorage("user.theme") var theme: String = "Parchment"
     init(selectedDate: Binding<Date?>, currentMonth: Binding<Date>, journalViewModel: JournalViewModel){
         self._selectedDate = selectedDate
         self._currentMonth = currentMonth
@@ -23,9 +24,10 @@ struct TimelineView: View {
             ScrollView{
                 VStack(spacing: 0){
                     ForEach(getJournalDates(), id: \.self){ date in
+                        let entries = journalViewModel.entries(at: date)
                         HStack(alignment: .top){
                             VStack(spacing: 0){
-                                Circle().stroke(lineWidth: 4).frame(width: 20, height: 20)
+                                Circle().frame(width: 10, height: 10, alignment: .center).foregroundColor(getThemeColor(name:"Chosen", theme: theme)).opacity(entries.isEmpty ? 0 : 1).padding(5).overlay(Circle().stroke(lineWidth: 4))
                                 Rectangle().frame(width: 6)
                                 Spacer()
                             }
@@ -35,8 +37,8 @@ struct TimelineView: View {
                                     Text(date.journalDateString).font(.headline)
                                     Spacer()
                                 }
-                                JournalListView(journals: journalViewModel.entries(at: date), journalViewModel: journalViewModel)
-                                    .padding(.top)
+                                    JournalListView(journals: entries, journalViewModel: journalViewModel)
+                                        .padding(.top)
                             }
                             .padding(.bottom)
                         }.id(date)
@@ -74,6 +76,15 @@ struct TimelineView: View {
                 dates.append(date!)
             }
         })
+        
+        let currentDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))!
+        if(!journals.contains(where: { journal in
+            let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: journal.createdAt ?? Date()))!
+            return (date == currentDate)
+        }) && currentMonth.year == currentDate.year && currentMonth.month == currentDate.month){
+            dates.append(currentDate)
+        }
+        
         return dates.sorted(by: {$0<$1})
     }
 }

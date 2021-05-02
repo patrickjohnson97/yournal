@@ -16,6 +16,7 @@ struct MonthlyView: View {
     var body: some View {
         ScrollView(showsIndicators: false){
             VStack{
+                Divider()
                 HStack{
                     Button(action: {}, label: {
                         Image(systemName: "chevron.backward.2")
@@ -33,7 +34,7 @@ struct MonthlyView: View {
                     let monthInt = Calendar.current.component(.month, from: currentMonth)
                     let monthStr = Calendar.current.monthSymbols[monthInt-1]
                     let yearInt = Calendar.current.component(.year, from: currentMonth)
-                    Text("\(monthStr) \(String(yearInt))").bold()
+                    Text("\(monthStr) \(String(yearInt))").bold().padding(8).background(RoundedRectangle(cornerRadius: 8).foregroundColor(getThemeColor(name: "Card", theme: theme)))
                         .onLongPressGesture {
                             let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
                             impactHeavy.impactOccurred()
@@ -132,7 +133,6 @@ struct MonthlyView: View {
                 days.append(lastDay!.dayAfter)
             }
         }
-        print(days)
         return days
     }
 }

@@ -14,58 +14,65 @@ struct SettingsView: View {
     var body: some View {
         ZStack{
             Background()
-            ScrollView{
-                VStack{
-                    Divider()
-                    NavigationLink(destination: PromptsView(), label: {
-                        HStack{
-                            Image(systemName: "quote.bubble.fill").foregroundColor(.accentColor)
-                            Text("Prompt List")
-                            Spacer()
-                            Image(systemName: "chevron.right").foregroundColor(.gray)
-                        }.contentShape(Rectangle())
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                    Divider()
-                    NavigationLink(destination: ThemePickerView(), label: {
-                        HStack{
-                            Image(systemName: "paintbrush.fill").foregroundColor(.accentColor)
-                            Text("Theme")
-                            Spacer()
-                            Image(systemName: "chevron.right").foregroundColor(.gray)
-                        } .contentShape(Rectangle())
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                    Divider()
-                    NavigationLink(destination: IconPickerView(), label: {
-                        HStack{
-                            Image(systemName: "face.smiling.fill").foregroundColor(.accentColor)
-                            Text("Icon")
-                            Spacer()
-                            Image(systemName: "chevron.right").foregroundColor(.gray)
-                        }
-                        .contentShape(Rectangle())
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                    Divider()
-                    
-                    HStack{
-                        Image(systemName: "bell.fill").foregroundColor(.accentColor)
-                        Text("Journal Reminders").lineLimit(1)
-                        Spacer()
-                        Toggle(isOn: $isNotificationsOn, label: {
-                            
-                        })
-                        .onReceive([self.isNotificationsOn].publisher.first()) { (value) in
-                            print("New value is: \(value)")
-                            toggleNotificationSettings()
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+            Form{
+                Group{
+                    Section{
+                        
                     }
-                    ExtraSettings()
                 }
-                .padding(.horizontal)
             }
+//            ScrollView{
+//                VStack{
+//                    Divider()
+//                    NavigationLink(destination: PromptsView(), label: {
+//                        HStack{
+//                            Image(systemName: "quote.bubble.fill").foregroundColor(.accentColor)
+//                            Text("Prompt List")
+//                            Spacer()
+//                            Image(systemName: "chevron.right").foregroundColor(.gray)
+//                        }.contentShape(Rectangle())
+//                    })
+//                    .buttonStyle(PlainButtonStyle())
+//                    Divider()
+//                    NavigationLink(destination: ThemePickerView(), label: {
+//                        HStack{
+//                            Image(systemName: "paintbrush.fill").foregroundColor(.accentColor)
+//                            Text("Theme")
+//                            Spacer()
+//                            Image(systemName: "chevron.right").foregroundColor(.gray)
+//                        } .contentShape(Rectangle())
+//                    })
+//                    .buttonStyle(PlainButtonStyle())
+//                    Divider()
+//                    NavigationLink(destination: IconPickerView(), label: {
+//                        HStack{
+//                            Image(systemName: "face.smiling.fill").foregroundColor(.accentColor)
+//                            Text("Icon")
+//                            Spacer()
+//                            Image(systemName: "chevron.right").foregroundColor(.gray)
+//                        }
+//                        .contentShape(Rectangle())
+//                    })
+//                    .buttonStyle(PlainButtonStyle())
+//                    Divider()
+//
+//                    HStack{
+//                        Image(systemName: "bell.fill").foregroundColor(.accentColor)
+//                        Text("Journal Reminders").lineLimit(1)
+//                        Spacer()
+//                        Toggle(isOn: $isNotificationsOn, label: {
+//
+//                        })
+//                        .onReceive([self.isNotificationsOn].publisher.first()) { (value) in
+//                            print("New value is: \(value)")
+//                            toggleNotificationSettings()
+//                        }
+//                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+//                    }
+//                    ExtraSettings()
+//                }
+//                .padding(.horizontal)
+//            }
         }
         .navigationTitle("Settings")
     }
