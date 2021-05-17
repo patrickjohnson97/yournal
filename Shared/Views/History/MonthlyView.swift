@@ -16,7 +16,6 @@ struct MonthlyView: View {
     var body: some View {
         ScrollView(showsIndicators: false){
             VStack{
-                Divider()
                 HStack{
                     Button(action: {}, label: {
                         Image(systemName: "chevron.backward.2")
@@ -54,6 +53,8 @@ struct MonthlyView: View {
                         advanceMonth()
                     })
                 }
+                .padding(.top)
+                .padding(.horizontal)
                 let days = getAllDays()
                 let columns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
                 LazyVGrid(columns: columns, spacing: 5) {
@@ -74,10 +75,10 @@ struct MonthlyView: View {
                         .opacity(day.isFuture ? 0.7 : 1)
                     }
                 }
+                .padding(.horizontal)
                 TimelineView(selectedDate: $selectedDate, currentMonth: $currentMonth, journalViewModel: journalViewModel)
                 
             }
-            .padding(.horizontal)
         }
         
     }

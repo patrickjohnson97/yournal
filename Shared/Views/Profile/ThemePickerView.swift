@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ThemePickerView: View {
-    @AppStorage("user.theme") var theme: String = "Parchment"
-    @AppStorage("user.tab") var selection: String = "Profile"
-    @AppStorage("user.themeChanged") var themeChanged: Bool = false
+//    @AppStorage("user.theme") var theme: String = "Parchment"
+    @State var theme: String = "Parchment"
+//    @AppStorage("user.tab") var selection: String = "Profile"
+//    @AppStorage("user.themeChanged") var themeChanged: Bool = false
     var body: some View {
         ZStack{
             Background()
-            List{
+            VStack{
+            ScrollView{
                 ForEach(themes.sorted(by: {$0.displayName < $1.displayName})){ theme in
                     Button(action: {setTheme(name: theme.name)}, label: {
                         HStack{
@@ -30,20 +32,26 @@ struct ThemePickerView: View {
                         }
                     })
                     .buttonStyle(PlainButtonStyle())
+                    Divider()
                 }
-                .listRowBackground(getThemeColor(name:"Background", theme: theme))
+                .padding()
+//                .listRowBackground(getThemeColor(name:"Background", theme: theme))
+            }
+                Spacer()
             }
         }.navigationTitle("Themes")
     }
     func setTheme(name: String){
         if(theme != name){
-            DispatchQueue.main.async {
-                theme = name
-                selection = "Profile"
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                themeChanged.toggle()
-            })
+            theme = name
+            UserDefaults.standard.setValue(name, forKey: "user.theme")
+//            DispatchQueue.main.async {
+//                theme = name
+////                selection = "Profile"
+//            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+//                themeChanged.toggle()
+//            })
         }
     }
 }

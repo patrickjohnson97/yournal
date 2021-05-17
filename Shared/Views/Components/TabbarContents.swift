@@ -10,30 +10,23 @@ import UIKit
 struct TabbarContents: View {
     @ObservedObject var journalViewModel: JournalViewModel
     @ObservedObject var promptViewModel: PromptViewModel
-    @AppStorage("user.tab") var selection: String = "Today"
+    @AppStorage("user.tab") var selection: String = "Home"
     var body: some View {
         TabView(selection: $selection) {
-//            NavigationView{
-//                TodayView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
-//            }
-//            .tabItem {
-//                Label("Today", systemImage: "doc.append")
-//            }
-//            .tag("Today")
             NavigationView{
                 HistoryView(journalViewModel: journalViewModel, promptViewModel: promptViewModel)
             }
             .tabItem {
-                Label("Home", systemImage: "doc.append")
+                Label("Home", systemImage: selection == "Home" ? "doc.append.fill" : "doc.append")
             }
-            .tag("History")
+            .tag("Home")
             NavigationView{
-                ProfileView(journalViewModel: journalViewModel)
+                SettingsView()
             }
             .tabItem {
-                Label("Profile", systemImage: "person")
+                Label("Settings", systemImage: selection == "Settings" ? "gearshape.fill" : "gearshape")
             }
-            .tag("Profile")
+            .tag("Settings")
         }
         
     }

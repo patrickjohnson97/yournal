@@ -17,7 +17,7 @@ struct StreaksView: View {
                 VStack(spacing: 4){
                     ForEach((0...6).reversed(), id: \.self){ dayOfWeek in
                         let daysAgo = -(week*7+dayOfWeek)+(7-Calendar.current.component(.weekday, from: Date()))
-                        DailyStreakView(allEntries: journalViewModel.journals, theme: theme, daysAgo: daysAgo)
+                        DailyStreakView(allEntries: journalViewModel.journals, theme: $theme, daysAgo: daysAgo)
                     }
                 }
             }
@@ -34,7 +34,7 @@ struct StreaksView_Previews: PreviewProvider {
 
 struct DailyStreakView: View {
     var allEntries: [JournalEntry]
-    @State var theme: String
+    @Binding var theme: String
     @Environment(\.colorScheme) var colorScheme
     var daysAgo: Int
     var body: some View {

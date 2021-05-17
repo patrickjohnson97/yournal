@@ -34,7 +34,7 @@ struct TimelineView: View {
                             .padding(.trailing, 5)
                             VStack(spacing: 0){
                                 HStack{
-                                    Text(date.journalDateString).font(.headline)
+                                    Text(date.journalDateString).textCase(.uppercase).font(.caption).foregroundColor(Color("Secondary-Text"))
                                     Spacer()
                                 }
                                     JournalListView(journals: entries, journalViewModel: journalViewModel)

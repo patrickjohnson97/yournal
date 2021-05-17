@@ -8,12 +8,15 @@
 import SwiftUI
 import Charts
 import AlertToast
-
+import UIKit
 struct ProfileView: View {
     @ObservedObject var journalViewModel : JournalViewModel
-    @AppStorage("user.theme") var theme: String = "Parchment"
+//    @AppStorage("user.theme") var theme: String = "Parchment"
+    @State var theme: String = "Parchment"
 
-    @State var showPopup: Bool = false
+//    @State var reactiveTheme = "Parchment"
+    let tabAppearance = UITabBarAppearance()
+    let standAppearance = UITabBar.appearance()
     var body: some View {
             ZStack{
                 Background()
@@ -31,84 +34,104 @@ struct ProfileView: View {
                             .frame(height: geometry.size.height > geometry.size.width ? geometry.size.height/4 : geometry.size.height/2)
 //                        .padding()
                         .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Card", theme: theme)))
-                        Divider()
-                        HStack{
-                            Text("Lists")
-                                .font(.title2).bold()
-                            Spacer()
-                        }
-                        HStack{
-                            NavigationLink(destination: HighestHighsView(journalViewModel: journalViewModel), label: {
-                                VStack{
-                                    HStack{
-                                        Text("Highest Highs")
-                                            .font(.system(.headline, design: .serif))
-                                            .foregroundColor(getThemeColor(name:"Background", theme: theme))
-                                        Spacer()
-                                    }
-                                    .padding()
-                                    Spacer()
-                                    Chart(data: [1, 4, 1])
-                                        .chartStyle(
-                                            LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
-                                        )
-                                        .frame(height:14)
-                                        .padding(.top)
-                                }
-                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Chosen", theme: theme)))
-                            })
-                            NavigationLink(destination: LowestLowsView(journalViewModel: journalViewModel), label: {
-                                VStack{
-                                    HStack{
-                                        Text("Lowest Lows")
-                                            .font(.system(.headline, design: .serif))
-                                            .foregroundColor(getThemeColor(name:"Background", theme: theme))
-                                        Spacer()
-                                    }.padding()
-                                    Spacer()
-                                    Chart(data: [4, 1, 4])
-                                        .chartStyle(
-                                            LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
-                                        )
-                                        .frame(height:14)
-                                        .padding(.top)
-                                }
-                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inferred", theme: theme)))
-                            })
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                        NavigationLink(destination: EmptyView(), label: {
-                        VStack{
-                            HStack{
-                                Text("Time Capsule")
-                                    .foregroundColor(getThemeColor(name:"Background", theme: theme))
-                                Spacer()
-                            }.padding()
-                            Spacer()
-                            Chart(data: [1, 1.5, 0.5, 2, 0.25, 2, 0.5, 1.5, 1])
-                                .chartStyle(
-                                    LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
-                                )
-                                .frame(height:20)
-                                .padding(.top)
-                        }
-                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inverse-Card", theme: theme)))
-                        })
-                        .hidden()
+//                        Divider()
+//                        HStack{
+//                            Text("Lists")
+//                                .font(.title2).bold()
+//                            Spacer()
+//                        }
+//                        HStack{
+//                            NavigationLink(destination: HighestHighsView(journalViewModel: journalViewModel), label: {
+//                                VStack{
+//                                    HStack{
+//                                        Text("Highest Highs")
+//                                            .font(.system(.headline, design: .serif))
+//                                            .foregroundColor(getThemeColor(name:"Background", theme: theme))
+//                                        Spacer()
+//                                    }
+//                                    .padding()
+//                                    Spacer()
+//                                    Chart(data: [1, 4, 1])
+//                                        .chartStyle(
+//                                            LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
+//                                        )
+//                                        .frame(height:14)
+//                                        .padding(.top)
+//                                }
+//                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Chosen", theme: theme)))
+//                            })
+//                            NavigationLink(destination: LowestLowsView(journalViewModel: journalViewModel), label: {
+//                                VStack{
+//                                    HStack{
+//                                        Text("Lowest Lows")
+//                                            .font(.system(.headline, design: .serif))
+//                                            .foregroundColor(getThemeColor(name:"Background", theme: theme))
+//                                        Spacer()
+//                                    }.padding()
+//                                    Spacer()
+//                                    Chart(data: [4, 1, 4])
+//                                        .chartStyle(
+//                                            LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
+//                                        )
+//                                        .frame(height:14)
+//                                        .padding(.top)
+//                                }
+//                                .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inferred", theme: theme)))
+//                            })
+//                            .buttonStyle(PlainButtonStyle())
+//                        }
+//                        NavigationLink(destination: EmptyView(), label: {
+//                        VStack{
+//                            HStack{
+//                                Text("Time Capsule")
+//                                    .foregroundColor(getThemeColor(name:"Background", theme: theme))
+//                                Spacer()
+//                            }.padding()
+//                            Spacer()
+//                            Chart(data: [1, 1.5, 0.5, 2, 0.25, 2, 0.5, 1.5, 1])
+//                                .chartStyle(
+//                                    LineChartStyle(.quadCurve, lineColor: getThemeColor(name:"Background", theme: theme), lineWidth: 3)
+//                                )
+//                                .frame(height:20)
+//                                .padding(.top)
+//                        }
+//                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(getThemeColor(name:"Inverse-Card", theme: theme)))
+//                        })
+//                        .hidden()
                     }.padding(.horizontal)
+                    SettingsView()
                     EmptyView()
                 }
                 }
             }
             
             .navigationTitle("Profile")
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarTrailing, content: {
-                    NavigationLink(destination: SettingsView(), label: {
-                        Image(systemName: "gear")
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                })
+//            .toolbar(content: {
+//                ToolbarItem(placement: .navigationBarTrailing, content: {
+//                    NavigationLink(destination: SettingsView(), label: {
+//                        Image(systemName: "gear")
+//                    })
+//                    .buttonStyle(PlainButtonStyle())
+//                })
+//            })
+//            .onChange(of: theme, perform: { value in
+////                print(theme)
+//                reactiveTheme = value
+////                DispatchQueue.main.async {
+////                    tabAppearance.backgroundColor = UIColor(getThemeColor(name: "Background", theme: value))
+////                    standAppearance.standardAppearance = tabAppearance
+////                }
+//
+////                tabAppearance.backgroundColor.isTranslucent = false
+////                UITabBar.appearance().barTintColor = UIColor(getThemeColor(name: "Background", theme: value))
+////                let appearance = UINavigationBarAppearance()
+////                appearance.configureWithTransparentBackground()
+////                appearance.backgroundColor = UIColor(getThemeColor(name: "Background", theme: value))
+////                UINavigationBar.appearance().scrollEdgeAppearance = appearance
+////                UINavigationBar.appearance().standardAppearance = appearance
+//            })
+            .onAppear(perform: {
+                theme = UserDefaults.standard.string(forKey: "user.theme") ?? "Parchment"
             })
         
     }

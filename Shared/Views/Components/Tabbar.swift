@@ -16,11 +16,7 @@ struct Tabbar: View {
     @AppStorage("user.themeChanged") var themeChanged: Bool = false
     var body: some View {
         VStack{
-            ForEach(themes){ theme in
-                if(currentTheme == theme.name){
-                    ThemeTabbar(journalViewModel: journalViewModel, promptViewModel: promptViewModel, theme: theme.name)
-                }
-            }
+            ThemeTabbar(journalViewModel: journalViewModel, promptViewModel: promptViewModel, theme: currentTheme)
         }
         .sheet(isPresented: $showWelcomeScreen, onDismiss: {setUpUser()}, content: {
             WelcomeScreenView(showWelcomeScreen: $showWelcomeScreen)
@@ -36,13 +32,6 @@ struct Tabbar: View {
         }, completion: {_ in
             DispatchQueue.main.async {
                 journalViewModel.deleteNotification = false
-            }
-        })
-        .toast(isPresenting: $themeChanged, duration: 6.0, tapToDismiss: true, alert: {
-            AlertToast(displayMode: .hud, type: .systemImage("paintbrush.fill", getThemeColor(name: "Chosen", theme: currentTheme)), title: "Theme changed!" , subTitle: "Time to give these colors a spin😎")
-        }, completion: {_ in
-            DispatchQueue.main.async {
-                themeChanged = false
             }
         })
     }

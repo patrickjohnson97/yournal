@@ -13,14 +13,6 @@ struct ThemeTabbar: View {
     init(journalViewModel: JournalViewModel, promptViewModel: PromptViewModel, theme: String){
         self.journalViewModel = journalViewModel
         self.promptViewModel = promptViewModel
-        let tabAppearance = UITabBarAppearance()
-        tabAppearance.backgroundColor = UIColor(getThemeColor(name: "Background", theme: theme))
-        UITabBar.appearance().standardAppearance = tabAppearance
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(getThemeColor(name: "Background", theme: theme))
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().standardAppearance = appearance
         UITextView.appearance().backgroundColor = .clear
         UITextView.appearance().showsVerticalScrollIndicator = false
     }
